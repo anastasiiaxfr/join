@@ -7,24 +7,20 @@ sections:
 - type: document
   path: content/en/banks
   label: Банкам і МФО (EN)
-  match: "**/*"
 - type: document
   path: content/ru/banks
   label: Банкам і МФО (RU)
-  match: "**/*"
 - type: document
-  path: content/en/banks
+  path: content/ua/banks
   label: Банкам і МФО (EN)
 - type: heading
   label: Про нас
 - type: document
   path: content/en/about
   label: Про нас (EN)
-  match: "**/*"
 - type: document
   path: content/ru/about
   label: Про нас (RU)
-  match: "**/*"
 - type: document
   path: content/ua/about
   label: Про нас (UA)
