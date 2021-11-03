@@ -9,12 +9,15 @@ sections:
   label: i18n
   create: all
   match: "**/*"
-- type: document
+- type: directory
   path: data
   label: data
-- type: document
+  create: all
+  match: "**/*"
+- type: directory
   path: content
   label: content
+  create: all
   match: "**/*"
 - type: heading
   label: Affiliates
