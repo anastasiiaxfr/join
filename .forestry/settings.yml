@@ -4,20 +4,14 @@ auto_deploy: false
 admin_path: ''
 webhook_url: 
 sections:
-- type: heading
-  label: Політика
-- type: heading
-  label: 'Оферта                                                      '
-- type: heading
-  label: Партнери
-- type: heading
-  label: Магазинам
 - type: document
   path: content/en/banks
   label: Банкам і МФО (EN)
   match: "**/*"
-- type: heading
-  label: Банкам і МФО
+- type: document
+  path: content/ru/banks
+  label: Банкам і МФО (RU)
+  match: "**/*"
 - type: heading
   label: Про нас
 - type: document
