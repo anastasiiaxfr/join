@@ -5,54 +5,58 @@ admin_path: ''
 webhook_url: 
 sections:
 - type: document
-  path: content/ua/personal-data
+  path: data
+  label: DATA
+  match: "**/*"
+- type: document
+  path: content/ua/personal-data/index.md
   label: Політика (UA)
 - type: document
-  path: content/ru/personal-data
+  path: content/ru/personal-data/index.md
   label: Політика (RU)
 - type: document
-  path: content/en/personal-data
+  path: content/en/personal-data/index.md
   label: Політика (EN)
 - type: document
-  path: content/ru/offer
+  path: content/ru/offer/index.md
   label: Оферта (RU)
 - type: document
-  path: content/ua/offer
+  path: content/ua/offer/index.md
   label: 'Оферта (UA)                                               '
 - type: document
-  path: content/en/offer
+  path: content/en/offer/index.md
   label: 'Оферта (EN)                                               '
 - type: document
-  path: content/en/affiliates
+  path: content/en/affiliates/index.md
   label: Партнери (EN)
 - type: heading
   label: Магазинам
 - type: document
-  path: content/en/shop
+  path: content/en/shop/index.md
   label: Магазинам (EN)
 - type: document
-  path: content/ru/shop
+  path: content/ru/shop/index.md
   label: Магазинам (RU)
 - type: document
-  path: content/ua/shop
+  path: content/ua/shop/index.md
   label: Магазинам (UA)
 - type: document
-  path: content/en/banks
+  path: content/en/banks/index.md
   label: Банкам і МФО (EN)
 - type: document
-  path: content/ru/banks
+  path: content/ru/banks/index.md
   label: Банкам і МФО (RU)
 - type: document
-  path: content/ua/banks
+  path: content/ua/banks/index.md
   label: Банкам і МФО (UA)
 - type: document
-  path: content/en/about
+  path: content/en/about/index.md
   label: Про нас (EN)
 - type: document
-  path: content/ru/about
+  path: content/ru/about/index.md
   label: Про нас (RU)
 - type: document
-  path: content/ua/about
+  path: content/ua/about/index.md
   label: Про нас (UA)
 upload_dir: static/images
 public_path: "/images"
