@@ -37,6 +37,8 @@ sections:
 - type: document
   path: content/ua/offer/_index.md
   label: 'Оферта (UA)                                               '
+- type: heading
+  label: Shop
 - type: document
   path: content/en/shop/_index.md
   label: Магазинам (EN)
@@ -46,6 +48,8 @@ sections:
 - type: document
   path: content/ua/shop/_index.md
   label: Магазинам (UA)
+- type: heading
+  label: Banks
 - type: document
   path: content/en/banks/_index.md
   label: Банкам і МФО (EN)
@@ -55,6 +59,8 @@ sections:
 - type: document
   path: content/ua/banks/_index.md
   label: Банкам і МФО (UA)
+- type: heading
+  label: About
 - type: document
   path: content/en/about/_index.md
   label: Про нас (EN)
