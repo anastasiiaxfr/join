@@ -12,6 +12,9 @@ sections:
 - type: document
   path: data
   label: data
+- type: document
+  path: content
+  label: content
   match: "**/*"
 - type: heading
   label: Affiliates
