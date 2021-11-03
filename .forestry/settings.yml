@@ -32,31 +32,31 @@ sections:
   path: content/ua/offer/_index.md
   label: 'Оферта (UA)                                               '
 - type: document
-  path: content/en/shop/index.md
+  path: content/en/shop/_index.md
   label: Магазинам (EN)
 - type: document
-  path: content/ru/shop/index.md
+  path: content/ru/shop/_index.md
   label: Магазинам (RU)
 - type: document
-  path: content/ua/shop/index.md
+  path: content/ua/shop/_index.md
   label: Магазинам (UA)
 - type: document
-  path: content/en/banks/index.md
+  path: content/en/banks/_index.md
   label: Банкам і МФО (EN)
 - type: document
-  path: content/ru/banks/index.md
+  path: content/ru/banks/_index.md
   label: Банкам і МФО (RU)
 - type: document
-  path: content/ua/banks/index.md
+  path: content/ua/banks/_index.md
   label: Банкам і МФО (UA)
 - type: document
-  path: content/en/about/index.md
+  path: content/en/about/_index.md
   label: Про нас (EN)
 - type: document
-  path: content/ru/about/index.md
+  path: content/ru/about/_index.md
   label: Про нас (RU)
 - type: document
-  path: content/ua/about/index.md
+  path: content/ua/about/_index.md
   label: Про нас (UA)
 upload_dir: static/images
 public_path: "/images"
