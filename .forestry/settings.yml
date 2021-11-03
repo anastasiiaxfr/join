@@ -4,106 +4,56 @@ auto_deploy: false
 admin_path: ''
 webhook_url: 
 sections:
-
-- type: heading
-  label: Політика
-
 - type: document
   path: content/ua/personal-data
   label: Політика (UA)
-  match: "**/*"
-
 - type: document
   path: content/ru/personal-data
   label: Політика (RU)
-  match: "**/*"
-
 - type: document
   path: content/en/personal-data
   label: Політика (EN)
-  match: "**/*"
-
-- type: heading
-  label: Оферта
-
 - type: document
   path: content/ru/offer
   label: Оферта (RU)
-  match: "**/*"
-
 - type: document
   path: content/ua/offer
   label: 'Оферта (UA)                                               '
-  match: "**/*"
-
 - type: document
   path: content/en/offer
   label: 'Оферта (EN)                                               '
-  match: "**/*"
-
-- type: heading
-  label: Партнери
-
-- type: document
-  path: content/ua/affiliates
-  label: Партнери (UA)
-  match: "**/*"
-
-- type: document
-  path: content/ru/affiliates
-  label: Партнери (RU)
-  match: "**/*"
-
 - type: document
   path: content/en/affiliates
   label: Партнери (EN)
-  match: "**/*"
-
 - type: heading
   label: Магазинам
-
 - type: document
   path: content/en/shop
   label: Магазинам (EN)
-
 - type: document
   path: content/ru/shop
   label: Магазинам (RU)
-
 - type: document
   path: content/ua/shop
   label: Магазинам (UA)
-
-- type: heading
-  label: Банкам і МФО
-
 - type: document
   path: content/en/banks
   label: Банкам і МФО (EN)
-
 - type: document
   path: content/ru/banks
   label: Банкам і МФО (RU)
-
 - type: document
   path: content/ua/banks
   label: Банкам і МФО (UA)
-
-- type: heading
-  label: Про нас
-
 - type: document
   path: content/en/about
   label: Про нас (EN)
-
 - type: document
   path: content/ru/about
   label: Про нас (RU)
-
 - type: document
   path: content/ua/about
   label: Про нас (UA)
-
 upload_dir: static/images
 public_path: "/images"
 front_matter_path: ''
