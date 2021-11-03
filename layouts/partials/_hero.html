@@ -1,0 +1,40 @@
+
+{{ $data := index .Site.Data .Site.Language.Lang }}
+
+{{ if $data.homepage.hero }}
+	{{ with $data.homepage.hero }}
+
+        <section class="section section__hero">
+            <div class="section_container">
+                <div class="section_row">
+
+                    <div class="section_col__l">
+                        {{ if .title }}
+                        <h1>
+                            {{ .title }}
+                        </h1>
+                        {{ end }}
+                        {{ if .title_sub }}
+                        <p class="text__subtitle">
+                            {{ .title_sub }}
+                        </p>
+                        {{ end }}
+
+
+                        {{- partial "_btn.html" . -}}
+                       
+                      
+                    </div>
+
+                    {{ if .bg_img }}
+                    <div class="col-md-6">
+                       <img src="{{ .bg_img | relURL }}" alt="{{ .Title }}" class="img img__hero">
+                    </div>
+                    {{ end }}
+
+                </div>
+            </div>
+        </section>
+    {{ end }}
+{{ end }}
+

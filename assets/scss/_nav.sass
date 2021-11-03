@@ -1,0 +1,260 @@
+.nav
+	&-item
+		padding: 0 rem(14)
+
+		+maw(992)
+			+pd((all, 0))
+
+		+maw($md)
+			+pd((all, 0))
+
+	&-link
+		transition: $trs
+		+ft(16, 24, 600, $ffText)
+		color: inherit
+
+		&:hover, &:active, &:focus
+			color: $main
+
+
+
+
+.dropdown
+	list-style-type: none
+
+	&-menu.show
+		min-width: auto
+
+		+theme(main)
+		border-color: transparent
+		border-radius: $brs
+
+		li
+			padding: rem(5) rem(15)
+			text-align: center
+
+			button
+				+mg((r, 0))
+
+			&:hover, &:focus, &:active
+				button
+					color: $white
+
+	button
+
+		min-width: auto
+		+pd((all, 0))
+
+		text-transform: uppercase
+		+ft(14, 22, 600, $ffHeading)
+		
+		border: none
+		background: transparent
+		color: inherit
+
+		&::first-letter
+			text-transform: uppercase
+
+		&:hover, &:focus, &:active
+			outline: none
+			box-shadow: none
+			background-color: transparent
+			color: inherit
+		  
+
+.lang-switcher
+	+flex(flex, center, center, nowrap)
+	+mg((r, 34px))
+
+
+.navbar
+	padding: rem(20) 0
+
+	&-collapse
+
+		+maw(992)
+			padding-top: 15px	
+
+	&_container
+		@extend .d-flex, .justify-content-between, .align-items-center
+		width: 100%
+		max-width: 100%
+
+		+maw($lg)
+			flex-wrap: wrap
+	
+	&_btn-group
+		@extend .d-flex
+		flex-wrap: wrap
+		
+
+	&_icon
+		&__close
+			+sz(40px, 40px)
+			+mg((l, -10px))
+
+		&__open
+			+sz(25px, 25px)
+
+	&-toggler 
+		+sz(40px, 40px)
+
+	[aria-expanded="false"]
+	
+		.navbar_icon
+			&__close
+				display: none
+
+			&__open
+				display: block
+
+	[aria-expanded="true"]
+
+		.navbar_icon
+			&__close
+				display: block
+
+			&__open
+				display: none
+
+.header
+	&_container
+		@extend .container
+
+	.nav
+		+flex(flex, center, center, nowrap)
+		width: 100%
+
+		padding: rem(15) 0
+
+		&_btn-group
+			+flex(flex, center, center, nowrap)
+
+		&-collapse
+			+flex(flex, center, center, nowrap)
+			flex: 1
+
+		&_toggler
+			display: none
+
+		&_link
+			padding: rem(10) rem(25)
+
+			+ft(16, 24, 600, $ffHeading)
+
+	+maw(1200)
+		.btn__call
+			min-width: auto
+	
+			span
+				display: none
+
+
+	+maw($lg)
+		.btn__call
+			min-width: auto
+
+			span
+				display: none
+
+
+	+maw($md)
+		.navbar
+			&-collapse
+				+ps(absolute, (t, 100%), (l, 0))
+				padding: 15px
+				border-radius: $brs1/2
+				
+				width: 100%
+				+theme(white)
+
+			&_btn-group
+				flex-wrap: wrap
+
+		.logo-box
+			order: 1
+
+		.lang-switcher
+			order: 2
+
+		.btn__call
+			width: 100%
+
+			justify-content: flex-start
+			text-align: left
+
+			+pd((all, 0))
+			+mg((b, 10px), (t, 10px))
+
+			border-radius: $brs1 
+			border: none
+			background-color: transparent
+			
+			svg
+				display: none
+
+			span
+				display: inline-block
+
+
+
+.footer
+	+pd((t, 80px), (b, 80px))
+
+	+theme(main)
+
+	+maw($sm)
+		padding: 15% 10%
+
+	&_box
+		+flex(flex, stretch, flex-start, wrap)
+		height: 100%
+
+	&_container
+		@extend .container
+
+	&_row
+		@extend .row, .justify-content-between
+
+	&_col
+		&__1
+			@extend .col-12, .col-lg-2, .mb-4
+
+		&__2
+			@extend  .col-md-3, .col-lg-2, .my-4
+
+		&__3
+			@extend .col-md-4, .col-lg-3, .my-4
+
+	&_text
+		&__copy
+			@extend .text__copy, .mt-4, .mt-sm-0
+
+	&_nav
+		li a
+			+ft(16, 25, 400, $ffText)
+
+	.text__copy
+		+mg((b, 0px), (t, auto))
+
+	h4
+		+ft(16, 24, 600, $ffHeading)
+
+	ul
+		+pd((all, 0))
+		+mg((b, 0))
+
+	li
+		+mg((t, 0px), (b, 12px))
+		list-style-type: none
+		+ft(16, 24, 600, $ffText)
+
+		&:last-child
+			+mg((b, 0))
+
+		a
+			color: inherit
+
+		&:hover, &:focus, &:active
+			color: $black
+

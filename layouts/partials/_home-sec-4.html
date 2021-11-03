@@ -1,0 +1,67 @@
+{{ $data := index .Site.Data .Site.Language.Lang }}
+
+{{ if $data.homepage.section_4 }}
+{{ with $data.homepage.section_4 }}
+
+
+<section class="section section__4">
+    <div class="section_container">
+        <div class="section_row align-items-center">
+
+
+            <table class="table table__1">
+                <tbody>
+                    <tr class="table_row">
+                        <td>
+                            <h2>
+                                {{ .title }}
+                            </h2>
+                        </td>
+                        <td rowspan="2">
+                            <img class="img img__2" src="{{ .bg_img | relURL }}" alt="{{ .Title }}">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+
+                            <div class="row">
+
+                           
+                            {{ range .items }}
+                            <div class="col-12 col-lg-6">
+                                <figure class="figure">
+                                    <h4 class="figure_title">
+                                        {{ .title | markdownify }}
+                                    </h4>
+                                    <div class="figure_desc">
+                                        {{ .description | markdownify }}
+                                    </div>
+                                </figure>
+                            </div>
+                            {{ end }}
+        
+                            {{ if .btn }}
+                            <div class="col-12 col-lg-6">
+                                <a href="{{ .btn.link }}" class="btn__bg-gray"> 
+                                    {{ .btn.label }} 
+                                </a>
+                            </div>
+                           {{ end }}
+
+                        </div>
+
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            </div>
+
+           
+
+        </div>
+    </div>
+</section>
+
+{{ end }}
+{{ end }}

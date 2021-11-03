@@ -1,0 +1,453 @@
+.page
+	&-body
+		display: flex
+		flex-direction: column
+		color: $gray
+
+		scroll-behavior: smooth
+		overflow-x: hidden
+
+	&-wrapper
+		flex: 1 0 auto
+		
+	&-main
+		+ft(14, 14*1.5, 400, $ffText)
+
+
+.section
+	+theme($white)
+
+	+pd((t, 60px), (b, 60px))
+
+	+maw($xlg)
+		+pd((t, 40px), (b, 40px))
+
+	+maw($sm)
+		+pd((t, 40px), (b, 40px))	
+			
+	&_container
+		@extend .container
+
+	&_row
+		@extend .row
+
+	&_col
+		&__l
+			@extend .col-md-6, .order-1, .order-md-0, .mt-4
+
+			+maw($xs)
+				text-align: center
+
+	&_hgroup
+    	@extend .col-md-8, .mx-auto, .text-center
+
+	&__hero
+		+pd((t, 100px))
+
+		+maw($md)
+			padding-top: 10%
+
+		+maw($sm)
+			text-align: center
+
+		+maw($xs)
+			+pd((t, 30px))
+
+		.section_row
+			align-items: center
+
+	&__2
+		+maw($sm)
+			+pd((t, 30px), (b, 0px))
+
+	&__5
+		@extend .mb-5
+
+		+maw($xlg)
+			+pd((t, 0px))
+
+		+maw($xs)
+			+pd((t, 0px))
+
+	&__6
+		+theme(gray)
+		border-radius: 0
+		overflow: hidden
+
+		+pd((t, 120px), (b, 120px))
+
+		+maw($xlg)
+			+pd((t, 40px), (b, 40px))
+
+		+maw($xs)
+			+pd((t, 60px), (b, 60px))
+			text-align: center
+	
+.img
+	display: block
+	object-fit: contain
+	width: auto
+	max-width: 100%
+
+	&__2
+		+maw($xs)
+			+mg((t, 25px))
+
+	&__3
+		@extend .d-block, .d-sm-none, .pt-5
+
+.card
+	max-width: rem(540)
+	padding: rem(25) 5% rem(32)
+	@extend %card
+
+	&_wrap
+		@extend .row, .mx-auto
+		+mg((t, 60px), (b, 60px))
+
+		+maw($xs)
+			+mg((t, 20px), (b, 20px))
+
+	&_img
+		display: block
+		object-fit: contain
+		max-width: rem(368)
+		width: 100%
+		+mg((l, auto), (r, auto))
+
+	&_item
+		@extend .col-md-6, .text-center
+		+mg((t, 20px), (b, 20px))
+			
+	&_title
+		+ft(20, 24, 600, $ffHeading)
+		+mg((t, 15px))
+
+		+maw($xs)
+			+ft(16, 24, 600, $ffHeading)
+	
+.box
+	max-width:rem(1128)
+	+mg((l, auto), (r, auto))
+	padding: rem(100) rem(68)
+	
+	text-align: center
+	+theme(light)
+	border-radius: $brs1
+	color: $gray
+
+	+maw($sm)
+		width: 90%	
+		padding: rem(40) rem(20)
+		margin: 0 auto
+
+	&_wrap
+		@extend .row, .mx-auto
+		+mg((t, 60px))
+
+		+maw($sm)
+			+mg((t, 30px))
+			
+	&_content
+		+flex(flex, center, center, wrap)
+		flex-direction: column
+		height: 100%
+		padding: rem(36)
+		
+		text-align: left
+
+		+maw($sm)
+			padding: 10%
+
+			text-align: center
+
+		h2
+			+mg((b, 12px))
+
+			+maw($sm)
+				+ft(20, 24, 800, $ffHeading)
+
+		p
+			+ft(16, 24, 600, $ffText)
+
+			+maw($sm)
+				+ft(14, 24, 600, $ffText)
+
+
+	&_item
+		+flex(inline-flex, center, flex-start, nowrap)
+		max-width: rem(301)
+		text-align: left
+
+		+maw($md)
+			flex-wrap: wrap
+			justify-content: center
+			+mg((t, 20px), (b, 20px))
+			text-align: center
+
+	&_num
+		+mg((r, 12px))
+		+ft(55, 50, 700, $ffHeading)
+
+		+maw($sm)
+			width: 100%
+			+mg((l, auto), (r, auto), (b, 5px))
+
+		+maw($md)
+			+mg((r, auto))
+	
+	&_text
+		+ft(16, 24, 600, $ffHeading)
+			
+		+miw($lg)
+			max-width: 58%
+
+		+maw($md)
+			+mg((t, 25px))
+			text-align: left
+
+		+maw($sm)
+			text-align: center
+
+.feature
+	max-width: rem(308)
+	margin: 0 auto rem(60)
+	text-align: center
+
+	&:hover, &:focus, &:active
+		svg
+			transform: translateY(-10px)
+
+	&_pic
+		svg
+			display: block
+			+sz(70px, 70px)
+			margin: 0 auto rem(8)
+
+			transition: $trs
+
+	&_title
+		+ft(20, 28, 600, $ffHeading)
+
+	&_desc
+		+ft(14, 22, 400, $ffText)
+
+	+maw($sm)
+		max-width: 100%
+	
+
+.img
+	&__2
+		display: block
+		object-fit: contain
+
+		max-width: rem(264)
+		margin: rem(35) auto
+		
+		
+.figure
+	+mg((t, 20px), (b, 20px))
+	
+	&_title
+		+ft(20, 28, 600, $ffHeading)
+
+		+maw($xs)
+			+ft(16, 24, 600, $ffHeading)
+
+	&_desc
+		+ft(14, 22, 400, $ffText)
+
+		+maw($xs)
+			+ft(12, 20, 400, $ffText)
+
+
+.str
+	margin: 0 auto
+
+	+maw($xs)
+		width: 90%
+		+pd((all, 0))
+		+mg((l, auto), (r, auto))
+
+	table
+		position: relative
+
+		&::after
+			content: ''
+
+			display: block
+			width: 2px
+			height: calc(100% + 54px)
+
+			+ps(absolute, (t, 0), (l, 9px))
+			z-index: 0
+
+			background-color: $yellow
+
+	&::after
+		content: ''
+		display: block
+
+		+sz(2px, 100%)
+		background-color: $yellow
+
+	&_num
+		+flex(inline-flex, center, center, nowrap)
+		+sz(20px, 20px)
+		+mg((r, 20px))
+		+ft(14, 22, 600, $ffHeading)
+		
+		border-radius: 50%
+		box-shadow: 0 0 0 5px $main
+		+theme(main)
+
+		position: relative
+		z-index: 1
+
+	&_item
+		list-style-type: none
+
+		+pd((b, 27px))
+
+		&:last-child
+			+pd((b, 0))
+
+			table::after
+				display: none
+
+		+maw($lg)
+			+pd((b, 50px))
+
+	&_content
+		h4
+			+ft(20, 28, 600, $ffHeading)
+
+			+maw($xs)
+				+ft(16, 24, 600, $ffHeading)
+		p
+			+ft(14, 22, 400, $ffText)
+
+			+maw($xs)
+				+ft(12, 20, 400, $ffHeading)
+
+.list
+	+mg((t, 0), (b, 0px))
+
+	+maw($sm)
+		text-align: center
+
+	&_title
+		+ft(16, 24, 600, $ffHeading)
+
+	&_content
+		+ft(16, 25, 400, $ffText)
+
+		+maw(1400)
+			p
+				display: inline-block
+
+	&_img
+		display: block
+		+sz(70px, 70px)
+
+		transition: $trs
+
+		+maw($sm)
+			+mg((l, auto), (r, auto), (t, 20px))
+
+	&:hover, &:active,&:focus
+		svg
+			transform: translateY(-10px)
+
+
+.logo
+	display: block
+
+	img
+		max-width: rem(101)
+
+
+.modal
+	position: relative
+	+theme(white)
+	@extend %card
+	border-radius: $brs1
+	z-index: 100500
+
+	+flex(flex, center, center, nowrap)
+	+sz(auto, auto)
+
+	max-width: rem(592)
+	+mg((all, auto))
+	padding: rem(52)
+
+	&_container
+		text-align: center
+		color: $gray
+
+	&_title
+		+ft(28, 34, 800, $ffHeading)
+
+	&_description
+		+mg((t, 12px), (b, 26px))
+		+ft(16, 24, 400, $ffText)
+
+	&_overlay
+		+ps(fixed, (t, 0), (l, 0), (b, 0), (r, 0))
+		+flex(flex, center, center, nowrap)
+		+sz(100%, 100%)
+		+mg(all, auto)
+		z-index: 1050
+		background-color: rgba($black, 0.5)
+
+
+.table
+	vertical-align: middle
+	color: $gray
+
+	td
+		border: none
+
+	&__1
+
+		+maw($sm)
+			width: 90%
+			margin: 0 auto
+
+			td
+				display: block
+
+
+	&_row
+		vertical-align: bottom
+
+		&__btm
+			vertical-align: bottom
+
+	&_data
+		border: none
+		color: inherit
+
+		+maw($lg)
+			display: block
+
+		&__inline
+			border: none
+			color: inherit
+
+			.logo
+				+mg((b, 25px))
+
+			+maw($lg)
+				+flex(flex, center, center, nowrap)
+
+				.logo
+					+mg((r, 25px), (b, 0))
+
+			+maw($sm)
+				flex-wrap: wrap
+				text-align: center
+
+				.logo
+					+mg((b, 25px))
+

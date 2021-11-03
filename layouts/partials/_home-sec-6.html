@@ -1,0 +1,114 @@
+{{ $data := index .Site.Data .Site.Language.Lang }}
+
+{{ if $data.homepage.section_6 }}
+{{ with $data.homepage.section_6 }}
+
+
+<section class="section section__6">
+    <div class="section_container">
+        <div class="section_row align-items-center">
+
+            <table class="table">
+                <tbody>
+                    <tr class="table_row__btm">
+                        <td class="table_data__inline">
+                         
+                            <div class="col-md-8">
+                                <a class="logo" href="{{ $.Site.BaseURL }}">
+                                    <img src="{{ $.Site.Params.logo | relURL }}" alt="{{ .Site.Params.site_name }}">
+                                </a>
+    
+                                <div class="text__lg">
+                                    <b>
+                                        {{ .title | markdownify }}
+                                    </b>
+                                </div>
+                            </div>
+
+                        </td>
+                        <td class="table_data" rowspan="2">
+                            <!-- Default Form -->
+                            <div class="form_wrap">
+
+                                <h3 class="form_title">
+                                    {{ $.Site.Params.form.title }}
+                                    Заявка на підключення
+                                </h3>
+
+                                <h4 class="form_subtitle">
+                                    Відправте форму, і наш менеджер зв'яжеться з вами
+                                </h4>
+
+                                {{ if $.Site.Params.form.enable }}
+
+                                <form method="{{ $.Site.Params.form.method }}" novalidate class="form js-form"
+                                    id="form">
+                                    <div class="form_row">
+                                        {{ range $.Site.Params.form.field }}
+
+                                        {{ if eq .type "submit" }}
+
+                                        <div class="form_group">
+                                            <button class="btn btn__bd" type="{{ .type }}" name="send">
+                                                {{ .placeholder }}
+                                            </button>
+                                        </div>
+
+                                        {{ else }}
+
+                                        <div class="form_group">
+                                            <input name="{{ .name }}" placeholder=" " required="{{ .required }}"
+                                                type="{{ .type }}" data-validate-field="{{ .name }}"
+                                                class="form_field" />
+                                            <label class="form_label" for="name"> {{ .placeholder }} </label>
+                                        </div>
+
+                                        {{ end }}
+
+                                        {{ end }}
+                                    </div>
+                                </form>
+
+                                {{ end }}
+
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="table_data">
+
+                            <div class="row">
+
+                                {{ range $i, $arr := .cols }}
+                                <div class="col-md-6">
+
+                                    <div class="list {{ if (eq $i 1) }} mb-0 {{ end }}">
+
+                                        <svg role="img" class="list_img {{ .icon }}">
+                                            <use xlink:href="#{{ .icon }}"></use>
+                                        </svg>
+
+                                        <h4 class="list_title">
+                                            {{ .title | markdownify }}
+                                        </h4>
+                                        <div class="list_content">
+                                            {{ .desc | markdownify }}
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                                {{ end }}
+
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</section>
+
+{{ end }}
+{{ end }}

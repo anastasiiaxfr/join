@@ -1,0 +1,55 @@
+h1
+    +ft(40, 50, 800, $ffHeading)
+
+    +maw($lg)
+        +ft(30, 30*1.2, 800, $ffHeading)
+
+    +maw($md)
+        +ft(23, 29, 800, $ffHeading)
+
+    +maw($xs)
+        +ft(23, 29, 800, $ffHeading)
+
+h2
+    +ft(32, 40, 800, $ffHeading)
+
+    +maw($lg)
+        +ft(28, 28*1.2, 800, $ffHeading)
+
+    +maw($md)
+        +ft(23, 29, 800, $ffHeading)
+
+    +maw($xs)
+        +ft(24, 30, 800, $ffHeading)
+
+p
+    margin: initial
+
+.text
+    &__copy
+        +ft(14, 22, 600, $ffHeading)
+
+    &__link
+        display: block
+        text-decoration: underline
+        
+        &:hover, &:focus, &:active
+            text-decoration: none
+            color: inherit
+
+    &__subtitle
+        +mg((b, 32px), (t, 20px))
+        +ft(16, 25, 400, $ffText)
+
+        +maw($xs)
+            +ft(14, 22, 400, $ffHeading)
+
+    &__sub
+        +mg((t, 12px))
+        +ft(14, 22, 400, $ffHeading)
+
+        +maw($xs)
+            +ft(12, 20, 400, $ffText)
+        
+    &__lg
+        +ft(20, 24, 700, $ffHeading)

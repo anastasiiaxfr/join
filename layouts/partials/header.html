@@ -1,0 +1,87 @@
+<!-- BEGIN header -->
+
+<header class="header">
+	<div class="header_container">
+		<div class="header_row">
+
+			<nav class="navbar navbar-expand-lg">
+				<div class="navbar_container">
+					
+					
+					<div class="logo-box">
+						{{ .Scratch.Set "img" .Site.Params.logo }}
+						{{ .Scratch.Set "logo_w" 101 }}
+						{{- partial "_logo.html" . -}}
+					</div>
+
+					<button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+					data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+					aria-expanded="false" aria-label="Toggle navigation">
+
+					<svg role="img" class="navbar_icon__open icon-4" width="20" height="20">
+						<use xlink:href="#icon-4"></use>
+					</svg>
+
+					<svg role="img" class="navbar_icon__close icon-1" width="20" height="20">
+						<use xlink:href="#icon-1"></use>
+					</svg>
+
+
+					</button>
+
+
+					<div class="collapse navbar-collapse" id="navbarSupportedContent">
+						<ul class="navbar-nav mx-auto">
+							{{ range .Site.Menus.header }}
+							{{ if .HasChildren }}
+							<li class="nav-item dropdown">
+								<a class="nav-link dropdown-toggle" href="{{ .URL }}" id="navbarDropdown" role="button"
+									data-bs-toggle="dropdown" aria-expanded="false">
+									{{ .Name }}
+								</a>
+								<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+									{{ range .Children }}
+									<li><a class="dropdown-item" href="{{ .URL | relURL }}">{{ .Name }}</a></li>
+									{{ end }}
+								</ul>
+							</li>
+							{{ else }}
+							<li class="nav-item">
+								<a class="nav-link" aria-current="page" href="{{ .URL | relURL }}">{{ .Name }}</a>
+							</li>
+							{{ end }}
+							{{ end }}
+						</ul>
+
+						<div class="navbar_btn-group">
+
+							{{- partial "_lang.html" . -}}
+	
+							<a href="tel: .Site.Params.mobile" class="btn__call">
+	
+								<svg role="img" class="icon-5" width="20" height="20">
+									<use xlink:href="#icon-5"></use>
+								</svg>
+	
+								<span>
+									{{ .Site.Params.mobile }}
+								</span>
+							</a>
+						
+						</div>
+
+					</div>
+
+				
+
+					</div>
+
+				</div>
+			</nav>
+
+
+		</div>
+	</div>
+
+</header>
+<!-- END header -->

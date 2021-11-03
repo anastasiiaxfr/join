@@ -1,0 +1,188 @@
+.btn
+    +flex(inline-flex, center, center, nowrap)
+    justify-content: space-evenly
+
+    min-width: rem(242)
+    width: auto
+    padding: rem(12) rem(24)
+    +ft(16, 24, 600, $ffHeading)
+
+    border-radius: $brs
+    border: 2px solid $main
+
+
+    &__call
+        @extend .btn, .btn__bg
+
+
+        +maw($sm)
+            +sz(30px, 30px)
+            min-width: auto
+            padding: rem(6)
+            border-radius: 50%
+
+            svg
+                +mg((r, 0))
+              
+            span
+                display: none
+               
+
+    &__top
+        +ps(fixed, (b, 10px), (r, 10px))
+        +flex(flex, center, center, nowrap)
+        +sz(45px, 45px)
+
+        transform: rotate(180deg)
+
+        +theme(dark)
+        stroke: $white
+        border: none
+        border-radius: $brs
+
+    &__bg
+        @extend .btn
+        +theme(main)
+
+        &:hover, &:active, &:focus
+            background-color: transparent
+            border-color: $main
+            color: $main
+
+            outline: none
+            appearance: none
+            box-shadow: none
+
+        &-gray
+            display: block
+            padding: rem(30) rem(25)
+            margin: rem(20) auto
+            width: 100%
+
+            +ft(14, 14, 600, $ffHeading)
+            +theme(gray)
+            text-align: center
+            border-radius: $brs2
+            transition: $trs
+
+            &:hover, &:active, &:focus
+                background-color: $yellow
+                color: $white
+
+.form
+    +mg((t, 45px))
+
+    .btn
+        display: block
+        @extend .btn__bg
+        width: 100%
+        max-width: 100%
+        min-width: auto
+
+    &_label
+        +ps(absolute, (t, 0), (b, 0), (l, 16px))
+        +flex(flex, center, flex-start, nowrap)
+        width: 100%
+
+        +mg((all, auto))
+       
+
+        +ft(14, 14, 400, $ffHeading)
+
+        text-align: left
+
+        transition: $trs
+        user-select: none
+
+        &__success
+            +ft(14, 14, 500, $ffHeading)
+            color: $green
+
+
+    &_group
+        position: relative
+        z-index: 1
+        
+    &_wrap
+        @extend %card
+
+        margin: 40px auto 20px
+
+        max-width: rem(464)
+        width: 100%
+
+        padding: rem(48)
+
+        text-align: center
+
+        transition: $trs
+
+        &:hover, &:active, &:focus
+            border-color: transparent
+
+        +maw($sm)
+            padding: 10%
+
+    &_title
+        +ft(28, 34, 800, $ffHeading)
+
+    &_subtitle
+        +mg((t, 12px))
+        +ft(16, 24, 400, $ffHeading)
+
+    &_field
+        position: relative
+        display: block
+        z-index: 2
+
+        +mg((t, 20px), (b, 20px))
+        padding: rem(8) rem(16)
+
+        width: 100%
+
+        //+ft(16, 25, 400, $ffText)
+        +ft(14, 25, 400, $ffText)
+
+        background-color: transparent
+        border-radius: $brs0
+        border: $bd2
+        color: $black
+
+        transition: $trs
+        user-select: none
+
+        &:hover, &:focus
+            border-color: $green
+
+        &:focus
+            & + .form_label
+                transform: translateY(-25%)
+                +ft(10, 10, 400, $ffHeading)
+                
+                border-color: $green
+
+        &:not(:placeholder-shown).form_field:not(:focus) + .form_label
+            transform: translateY(-25%)
+            +ft(10, 10, 400, $ffHeading)
+           
+            border-color: $green
+
+
+        &__error
+            border-color: $red
+
+ 
+
+
+.btn-check:checked+.btn-secondary:focus, .btn-check:active+.btn-secondary:focus, .btn-secondary:active:focus, .btn-secondary.active:focus, .show>.btn-secondary.dropdown-toggle:focus
+    box-shadow: none
+
+.js-validate-error-label 
+    +ps(absolute, (t, -30%), (l, 0))
+    +ft(10, 10, 500, $ffHeading)
+
+
+.navbar-toggler
+    +pd((all, 0))
+    &:focus
+        box-shadow: none

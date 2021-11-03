@@ -1,0 +1,244 @@
+############################# 
+# Default configuration #############################
+baseURL = "/"
+title = "jo1n - Главная"
+# post pagination
+paginate = "6"
+# post excerpt
+summaryLength = "50"
+# disable language
+canonifyURLs = true
+relativeURLs = true
+
+defaultContentLanguage = "ua"
+disableLanguages = []
+languageCode = "ua"
+
+
+[outputs]
+home = ["HTML", "RSS", "JSON"]
+
+################################### 
+# Plugins 
+###################################
+
+# CSS Plugins
+# [[params.plugins.css]]
+# link = "plugins/icon/themify-icons.css"
+
+[[params.plugins.css]]
+link = "plugins/js/animate.min.css"
+
+[[params.plugins.js]]
+link = "plugins/js/wow.min.js"
+
+# JS Plugins
+[[params.plugins.js]]
+link = "plugins/js/bootstrap.bundle.min.js"
+
+[[params.plugins.js]]
+link = "plugins/js/jquery.min.js"
+
+
+
+[[params.plugins.js]]
+link = "plugins/js/just-validate.min.js"
+
+[[params.plugins.js]]
+link = "plugins/js/inputmask.min.js"
+
+########################### 
+# Default parameters ###########################
+[params]
+# main logo
+logo = "/images/logo.svg"
+logo_dark = "/images/logo_dark.svg"
+logo_w = "101"
+
+site_url = "join1.com"
+site_name = "Join1"
+
+home = "Home"
+
+
+# Meta data
+description = ""
+develop = "xfr"
+
+GTM = "GTM-WHBQ3BV"
+CIO_site_id = "XXX"
+
+# tm_token = "2087518733:AAFBwgwBYqdtY-BInNaE1t8u6dUGQLcOIX8"
+# tm_id = "-748329052"
+
+# tm_token = "2087518733:AAFBwgwBYqdtY-BInNaE1t8u6dUGQLcOIX8"
+# tm_id = "-748329052"
+
+tm_id = "-587397444"
+tm_token = "2045157225:AAFQjtb_C69OrQqaXjNLnpODfFy01tIe1Lg"
+
+# contact info
+address = "ТОВ “МС ПЕЙ” \n Київ, вул. Солом'янська 3, оф. 6"
+mobile = "(097) 875 12 43"
+email = "join.commercial@gmail.com"
+
+# footer
+
+copy = "&copy; 2021 JO1N Ltd"
+
+[[Languages.ua.footer.col]]
+links = [["Оферта", "/offer/"], ["Політика обробки персональних даних", "/personal-data/"]]
+title = "Юридична інформація"
+
+[[Languages.ua.footer.col]]
+links = [["ТОВ “МС ПЕЙ” \n Київ, вул. Солом'янська 3, оф. 6", "/"], ["join.commercial@gmail.com", "mailto:join.commercial@gmail.com"]]
+title = "Контакти"
+
+# menu
+[[menu.header]]
+name = "Про нас"
+URL = "/about/"
+weight = 1
+
+[[menu.header]]
+name = "Банкам і МФО"
+URL = "/banks/"
+weight = 2
+
+[[menu.header]]
+name = "Магазинам"
+URL = "/shop/"
+weight = 3
+
+[[menu.header]]
+name = "Партнери"
+URL = "/affiliates/"
+weight = 4
+
+# footer menu
+[[menu.footer]]
+name = "Головна"
+URL = "/"
+weight = 1
+
+[[menu.footer]]
+name = "Про нас"
+URL = "about/"
+weight = 2
+
+[[menu.footer]]
+name = "Банкам та МФО"
+URL = "/banks/"
+weight = 3
+
+[[menu.footer]]
+name = "Магазинам"
+URL = "/shop/"
+weight = 4
+
+[[menu.footer]]
+name = "Партнери"
+URL = "/affiliates/"
+weight = 5
+
+#####################################
+# form
+[ Languages.ua.modal ]
+[[ Languages.ua.modal.success ]]
+title = "Заявку успішно надіслано"
+title_sub = "Упродовж одного робочого дня наш менеджер зв'яжеться з вами, щоб обговорити подальшу співпрацю."
+
+btn_label = "Ок"
+btn_url = "#"
+
+
+[[ Languages.ua.modal.send ]]
+title = ""
+title_sub = ""
+
+
+[[ Languages.ua.modal.error ]]
+title = ""
+title_sub = ""
+
+#####################################
+# Ukranian language #####################################
+[ Languages.ua ]
+languageName = "Ua"
+languageCode = "Ua"
+contentDir = "content/ua"
+weight = 1
+home = "Головна"
+
+################################### 
+# Russian language #####################################
+[ Languages.ru ]
+languageName = "Ru"
+languageCode = "ru"
+contentDir = "content/ru"
+weight = 2
+home = "Главная"
+
+################################### 
+# English language #####################################
+[ Languages.en ]
+languageName = "En"
+languageCode = "en-us"
+contentDir = "content/en"
+weight = 3
+home = "Home"
+
+[ sitemap ]
+ChangeFreq = "daily"
+Priority = 0.6
+Weight = [["main", "1"], ["sub2", "0.8"], ["sub3", "0.6"]]
+enableRobotsTXT = true
+
+[ taxonomies ]
+author = "authors"
+category = "categories"
+tag = "tags"
+
+# Preloader
+[ params.preloader ]
+enable = true
+preloader = "" # use jpg,png,svg or gif format
+
+# form
+[Languages.ua.params.form]
+enable = true
+action = "#"
+method="POST"
+
+[[Languages.ua.params.form.field]]
+enable = true
+type = "text"
+name = "name"
+placeholder = "* Ім`я"
+required = ""
+
+[[Languages.ua.params.form.field]]
+enable = true
+type = "email"
+name = "email"
+placeholder = "* Email"
+required = ""
+
+[[Languages.ua.params.form.field]]
+enable = true
+type = "tel"
+name = "tel"
+placeholder = "Телефон"
+required = ""
+
+[[Languages.ua.params.form.field]]
+enable = true
+type = "url"
+name = "url"
+placeholder = "Сайт магазину"
+required = ""
+
+[[Languages.ua.params.form.field]]
+enable = true
+type = "submit"
+placeholder = "Надіслати"

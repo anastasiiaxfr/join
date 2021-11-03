@@ -1,0 +1,68 @@
+<!-- Footer -->
+<!--Main Footer-->
+<footer class="footer">
+    <div class="footer_container">
+        <div class="footer_row">
+
+            <div class="footer_col__1">
+
+                <div class="footer_box">
+                    {{ .Scratch.Set "logo_mode" "dark" }}
+
+                    {{- partial "_logo.html" . -}}
+
+
+
+                </div>
+
+            </div>
+
+            <div class="footer_col__2">
+
+                <ul>
+                    {{ range .Site.Menus.footer }}
+
+                    <li>
+                        <a href="{{ .URL | relURL }}">
+                            {{ .Name }}
+                        </a>
+                    </li>
+
+
+                    {{ end }}
+                </ul>
+
+            </div>
+
+       
+            {{ if .Site.Params.footer.col }}
+            {{ range .Site.Params.footer.col }}
+            <div class="footer_col__3">
+                <h4> {{ .title | markdownify }} </h4>
+
+                <ul class="footer_nav">
+                    {{ range .links }}
+                    <li>
+                        <a href="{{ with index . 1 }}{{  . | relLangURL }}{{ end }}" class="text-link">
+                            {{ with index . 0}}
+                                {{ . | markdownify }}
+                            {{ end }} 
+                        </a>
+                    </li>
+                    {{ end }} 
+                   
+                </ul>
+              
+            </div>
+            {{ end }}
+            {{ end }}
+
+            
+            <p class="footer_text__copy">
+                {{ .Site.Params.copy | markdownify }}
+            </p>
+
+        </div>
+    </div>
+</footer>
+<!--Main Footer-->

@@ -1,0 +1,59 @@
+{{ $data := index .Site.Data .Site.Language.Lang }}
+
+{{ if $data.homepage.section_4 }}
+{{ with $data.homepage.section_4 }}
+
+
+<section class="section section__4">
+    <div class="section_container">
+        <div class="section_row align-items-center">
+
+
+<div class="col-md-9">
+    <h2>
+        {{ .title }}
+    </h2>
+</div>
+
+            <div class="col-md-9">
+
+                <img class="img img__3" src="{{ .bg_img | relURL }}" alt="{{ .Title }}">
+
+
+                <div class="row pt-4">
+
+                    {{ range .items }}
+                    <div class="col-md-6">
+                        <figure class="figure">
+                            <h4 class="figure_title">
+                                {{ .title | markdownify }}
+                            </h4>
+                            <div class="figure_desc">
+                                {{ .description | markdownify }}
+                            </div>
+                        </figure>
+                    </div>
+                    {{ end }}
+
+                    {{ if .btn }}
+                    <div class="col-md-6">
+                        <a href="{{ .btn.link }}" class="btn__bg-gray"> 
+                            {{ .btn.label }} 
+                        </a>
+                    </div>
+                   {{ end }}
+
+                </div>
+
+            </div>
+            
+            <div class="col-md-3">
+                <img class="img img__2" src="{{ .bg_img | relURL }}" alt="{{ .Title }}">
+            </div>
+
+        </div>
+    </div>
+</section>
+
+{{ end }}
+{{ end }}

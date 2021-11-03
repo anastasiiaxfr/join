@@ -1,0 +1,40 @@
+{{ $data := index .Site.Data .Site.Language.Lang }}
+
+{{ if $data.homepage.section_2 }}
+{{ with $data.homepage.section_2 }}
+
+
+<section class="section section__2">
+    <div class="section_container">
+        <div class="section_row">
+
+
+            <div class="box">
+                <h2>
+                    {{ .title | markdownify }}
+                </h2>
+
+                <div class="box_wrap">
+                    {{ range .lists }}
+                    <div class="col-md-4">
+                        <div class="box_item">
+                            <div class="box_num">
+                                {{ .val }}
+                            </div>
+                            <div class="box_text">
+                                {{ .item | markdownify }}
+                            </div>
+                        </div>
+                    </div>
+                    {{ end }}
+                </div>
+
+            </div>
+
+
+        </div>
+    </div>
+</section>
+
+{{ end }}
+{{ end }}
