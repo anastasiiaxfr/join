@@ -1,12 +1,13 @@
 ---
-title: "Services"
-title_before: ""
-titile_after: ""
+title: Services
+title_before: ''
+titile_after: ''
+description: ''
+description_before: ''
+description_after: ''
 
-description : ""
-description_before: ""
-description_after: ""
-
-draft: false
 ---
-
+* Никаких затрат на привлечение заемщиков:   
+  к JO1N подключается магазин — партнеры получают доступ к новым клиентам. 
+* Максимальное покрытие рынка:  
+  кредитование как онлайн, так и офлайн-покупателей.
