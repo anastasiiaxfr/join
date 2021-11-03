@@ -4,8 +4,6 @@ auto_deploy: false
 admin_path: ''
 webhook_url: 
 sections:
-- type: heading
-  label: Партнери
 - type: document
   path: content/en/affiliates/_index.md
   label: Партнери (EN)
@@ -15,9 +13,6 @@ sections:
 - type: document
   path: content/ua/affiliates/_index.md
   label: Партнери (UA)
-
-- type: heading
-  label: Політика
 - type: document
   path: content/ua/policy/_index.md
   label: Політика (UA)
@@ -27,21 +22,15 @@ sections:
 - type: document
   path: content/en/policy/_index.md
   label: Політика (EN)
-
-- type: heading
-  label: Оферта
+- type: document
+  path: content/en/offer/_index.md
+  label: 'Оферта (EN)                                               '
 - type: document
   path: content/ru/offer/_index.md
   label: Оферта (RU)
 - type: document
   path: content/ua/offer/_index.md
-  label: Оферта (UA)                                               '
-- type: document
-  path: content/en/offer/_index.md
-  label: Оферта (EN)                                               '
-
-- type: heading
-  label: Магазинам
+  label: 'Оферта (UA)                                               '
 - type: document
   path: content/en/shop/index.md
   label: Магазинам (EN)
@@ -51,9 +40,6 @@ sections:
 - type: document
   path: content/ua/shop/index.md
   label: Магазинам (UA)
-
-- type: heading
-  label: Банкам і МФО
 - type: document
   path: content/en/banks/index.md
   label: Банкам і МФО (EN)
@@ -63,9 +49,6 @@ sections:
 - type: document
   path: content/ua/banks/index.md
   label: Банкам і МФО (UA)
-
-- type: heading
-  label: Про нас
 - type: document
   path: content/en/about/index.md
   label: Про нас (EN)
@@ -75,7 +58,6 @@ sections:
 - type: document
   path: content/ua/about/index.md
   label: Про нас (UA)
-
 upload_dir: static/images
 public_path: "/images"
 front_matter_path: ''
