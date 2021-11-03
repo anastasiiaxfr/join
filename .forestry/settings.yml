@@ -4,10 +4,33 @@ auto_deploy: false
 admin_path: ''
 webhook_url: 
 sections:
+- type: heading
+  label: Політика
+- type: heading
+  label: 'Оферта                                                      '
+- type: heading
+  label: Партнери
+- type: heading
+  label: Магазинам
 - type: document
-  path: layouts/about
-  label: Про нас
+  path: content/en/banks
+  label: Банкам і МФО (EN)
   match: "**/*"
+- type: heading
+  label: Банкам і МФО
+- type: heading
+  label: Про нас
+- type: document
+  path: content/en/about
+  label: Про нас (EN)
+  match: "**/*"
+- type: document
+  path: content/ru/about
+  label: Про нас (RU)
+  match: "**/*"
+- type: document
+  path: content/ua/about
+  label: Про нас (UA)
 upload_dir: static/images
 public_path: "/images"
 front_matter_path: ''
