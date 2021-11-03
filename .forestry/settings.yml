@@ -24,8 +24,6 @@ sections:
 - type: document
   path: content/ua/banks
   label: Банкам і МФО (UA)
-- type: heading
-  label: Про нас
 - type: document
   path: content/en/about
   label: Про нас (EN)
