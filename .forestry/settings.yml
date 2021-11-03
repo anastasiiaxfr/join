@@ -4,18 +4,17 @@ auto_deploy: false
 admin_path: ''
 webhook_url: 
 sections:
+- type: heading
+  label: Магазинам
 - type: document
   path: content/en/shop
   label: Магазинам (EN)
-  match: "**/*"
 - type: document
   path: content/ru/shop
   label: Магазинам (RU)
-  match: "**/*"
 - type: document
   path: content/ua/shop
   label: Магазинам (UA)
-  match: "**/*"
 - type: document
   path: content/en/banks
   label: Банкам і МФО (EN)
