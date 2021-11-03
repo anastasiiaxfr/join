@@ -1,19 +1,73 @@
+%label
+    transform: translateY(-25%)
+    +ft(10, 10, 400, $ffHeading)
+    margin-top: rem(-3)    
+
+
 .btn
     +flex(inline-flex, center, center, nowrap)
     justify-content: space-evenly
 
-    min-width: rem(242)
     width: auto
     padding: rem(12) rem(24)
-    +ft(16, 24, 600, $ffHeading)
+    +ft(16, 16, 600, $ffHeading)
 
     border-radius: $brs
     border: 2px solid $main
 
 
-    &__call
-        @extend .btn, .btn__bg
+    &_top
+        +ps(fixed, (b, 10px), (r, 10px))
+        +flex(flex, center, center, nowrap)
+        +sz(45px, 45px)
 
+        transform: rotate(180deg)
+
+        +theme(dark)
+        stroke: $white
+        border: none
+        border-radius: $brs
+
+    &_bg
+        @extend .btn
+        +sz(242px, 48px)
+        padding: rem(4)
+        +theme(main)
+
+        &:hover, &:active, &:focus
+            background-color: transparent
+            border-color: $main
+            color: $gray
+
+            outline: none
+            appearance: none
+            box-shadow: none
+
+        &-gray
+            +flex(flex, center, center, wrap)
+
+            padding: rem(30) rem(25)
+            margin: rem(0) auto
+
+            height: rem(106)
+            max-width: rem(378)
+            width: 100%
+
+            +ft(14, 14, 600, $ffHeading)
+            +theme(gray)
+            text-align: center
+            border-radius: $brs
+            border: 1px solid transparent
+            transition: $trs
+
+            &:hover, &:active, &:focus
+                background-color: transparent
+                border-color: $main
+                color: $gray
+
+    &_call
+        @extend .btn, .btn_bg
+        +sz(198px, 48px)
 
         +maw($sm)
             +sz(30px, 30px)
@@ -28,58 +82,18 @@
                 display: none
                
 
-    &__top
-        +ps(fixed, (b, 10px), (r, 10px))
-        +flex(flex, center, center, nowrap)
-        +sz(45px, 45px)
-
-        transform: rotate(180deg)
-
-        +theme(dark)
-        stroke: $white
-        border: none
-        border-radius: $brs
-
-    &__bg
-        @extend .btn
-        +theme(main)
-
-        &:hover, &:active, &:focus
-            background-color: transparent
-            border-color: $main
-            color: $main
-
-            outline: none
-            appearance: none
-            box-shadow: none
-
-        &-gray
-            display: block
-            padding: rem(30) rem(25)
-            margin: rem(20) auto
-            width: 100%
-
-            +ft(14, 14, 600, $ffHeading)
-            +theme(gray)
-            text-align: center
-            border-radius: $brs2
-            transition: $trs
-
-            &:hover, &:active, &:focus
-                background-color: $yellow
-                color: $white
 
 .form
     +mg((t, 45px))
 
     .btn
         display: block
-        @extend .btn__bg
+        @extend .btn_bg
         width: 100%
         max-width: 100%
         min-width: auto
 
-    &_label
+    &__label
         +ps(absolute, (t, 0), (b, 0), (l, 16px))
         +flex(flex, center, flex-start, nowrap)
         width: 100%
@@ -94,24 +108,34 @@
         transition: $trs
         user-select: none
 
-        &__success
+        strong
+            +mg((r, 5px))
+            color: $red
+
+        &_success
             +ft(14, 14, 500, $ffHeading)
             color: $green
 
+        &_tel
+            @extend .form__label
+            transform: translateY(-25%)
+            margin-top: -3px
+            +ft(10, 10, 400, $ffHeading)
 
-    &_group
+    &__group
         position: relative
         z-index: 1
-        
-    &_wrap
+
+    &__wrap
         @extend %card
+        color: $gray
 
         margin: 40px auto 20px
 
-        max-width: rem(464)
-        width: 100%
+        max-width: rem(461)
+        width: rem(461)
 
-        padding: rem(48)
+        padding: rem(45)
 
         text-align: center
 
@@ -122,15 +146,16 @@
 
         +maw($sm)
             padding: 10%
+            width: 100%
 
-    &_title
+    &__title
         +ft(28, 34, 800, $ffHeading)
 
-    &_subtitle
+    &__subtitle
         +mg((t, 12px))
         +ft(16, 24, 400, $ffHeading)
 
-    &_field
+    &__field
         position: relative
         display: block
         z-index: 2
@@ -155,23 +180,23 @@
             border-color: $green
 
         &:focus
-            & + .form_label
-                transform: translateY(-25%)
-                +ft(10, 10, 400, $ffHeading)
+            & + .form__label
+                @extend %label
                 
                 border-color: $green
 
-        &:not(:placeholder-shown).form_field:not(:focus) + .form_label
-            transform: translateY(-25%)
-            +ft(10, 10, 400, $ffHeading)
+        &:not(:placeholder-shown).form__field:not(:focus) + .form__label
+            @extend %label
            
             border-color: $green
 
-
-        &__error
+        &_error
             border-color: $red
 
- 
+.modal
+    &-content
+        background: transparent
+        border: none
 
 
 .btn-check:checked+.btn-secondary:focus, .btn-check:active+.btn-secondary:focus, .btn-secondary:active:focus, .btn-secondary.active:focus, .show>.btn-secondary.dropdown-toggle:focus

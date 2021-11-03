@@ -4,36 +4,39 @@
 {{ with $data.homepage.section_4 }}
 
 
-<section class="section section__4">
-    <div class="section_container">
-        <div class="section_row align-items-center">
+<section class="section section_4">
+    <div class="section__container">
+        <div class="section__row align-items-center">
 
 
-            <table class="table table__1">
+            <table class="table table_1">
                 <tbody>
-                    <tr class="table_row">
+                    <tr class="table__row">
                         <td>
                             <h2>
                                 {{ .title }}
                             </h2>
                         </td>
                         <td rowspan="2">
-                            <img class="img img__2" src="{{ .bg_img | relURL }}" alt="{{ .Title }}">
+                            <picture>
+                                <source srcset="{{ .bg_img_webp | relURL }}" type="image/webp" alt="{{ .Title }}" class="img img_2" width="264" height="527">
+                                <img src="{{ .bg_img | relURL }}" alt="{{ .Title }}" class="img img_2"  width="100%" height="auto">
+                            </picture>
                         </td>
                     </tr>
-                    <tr>
+                    <tr class="table__row">
                         <td>
 
                             <div class="row">
 
                            
-                            {{ range .items }}
-                            <div class="col-12 col-lg-6">
+                            {{ range $i, $arr := .items }}
+                            <div class="col-12 col-lg-6 {{ if (eq $i 0 | or (eq $i 1)) }} row_3 {{ end }}">
                                 <figure class="figure">
-                                    <h4 class="figure_title">
+                                    <h4 class="figure__title">
                                         {{ .title | markdownify }}
                                     </h4>
-                                    <div class="figure_desc">
+                                    <div class="figure__desc">
                                         {{ .description | markdownify }}
                                     </div>
                                 </figure>
@@ -42,7 +45,7 @@
         
                             {{ if .btn }}
                             <div class="col-12 col-lg-6">
-                                <a href="{{ .btn.link }}" class="btn__bg-gray"> 
+                                <a href="{{ .btn.link }}" class="btn_bg-gray"> 
                                     {{ .btn.label }} 
                                 </a>
                             </div>

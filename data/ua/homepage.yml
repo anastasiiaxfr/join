@@ -4,7 +4,8 @@ hero:
   title: "Сервіс для простого кредитування покупців"
   title_sub: "Продавайте товари в кредит або з оплатою частинами та збільшуйте продажі і середній чек."
  
-  bg_img: "/images/pic_1.png"
+  bg_img: "/images/pic_1@2x.png"
+  bg_img_webp: "/images/pic_1.webp"
 
   btn:
     enable: true
@@ -20,9 +21,11 @@ section_1:
   cards:
     - title: "Онлайн-платформам"
       icon: "/images/pic_2.png"
+      icon_webp: "/images/pic_2.webp"
 
     - title: "Магазинам"
       icon: "/images/pic_3.png" 
+      icon_webp: "/images/pic_3.webp" 
 
   btn:
     enable: true
@@ -78,6 +81,7 @@ section_4:
   title: "Пропонуйте покупцям зручні умови кредитування"
   
   bg_img: "/images/pic_4.png"
+  bg_img_webp: "/images/pic_4.webp"
 
   items:
     - title: "Погодження заявки — 5 хвилин"
@@ -129,8 +133,8 @@ section_6:
       desc: "Команда підтримки 24/7 \n\n Пишіть у чат у будь-який час"
       icon: "icon-i-7"
     - title: "Співпраця та партнерство"
-      desc: "join.commercial@gmail.com \n\n +38 (097) 875 12 43 \n\n (пн-пт, 9:00 - 18:00)"
-      icon: "icon-i-6"
+      desc: "join.commercial@gmail.com \n\n [+38&nbsp;(097)&nbsp;875&nbsp;12&nbsp;43](tel:+38(097)8751243) \n\n (пн-пт, 9:00 - 18:00)"
+      icon: "icon-i-8"
 
 # forms #
 form:

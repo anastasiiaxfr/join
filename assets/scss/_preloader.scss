@@ -5,7 +5,7 @@
     z-index: 100500;
 	transition: $trs;
 
-	background-color: rgba($yellow_light, 1);
+	background-color: rgba($white, 1);
 
     &-dots {
         @include sz(100px, 0);

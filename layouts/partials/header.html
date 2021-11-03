@@ -1,16 +1,17 @@
 <!-- BEGIN header -->
 
 <header class="header">
-	<div class="header_container">
-		<div class="header_row">
+	<div class="header__container">
+		<div class="header__row">
 
 			<nav class="navbar navbar-expand-lg">
-				<div class="navbar_container">
+				<div class="navbar__container">
 					
 					
 					<div class="logo-box">
 						{{ .Scratch.Set "img" .Site.Params.logo }}
 						{{ .Scratch.Set "logo_w" 101 }}
+						{{ .Scratch.Set "logo_h" 36 }}
 						{{- partial "_logo.html" . -}}
 					</div>
 
@@ -18,11 +19,11 @@
 					data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
 					aria-expanded="false" aria-label="Toggle navigation">
 
-					<svg role="img" class="navbar_icon__open icon-4" width="20" height="20">
+					<svg role="img" class="navbar__icon_open icon-4" width="20" height="20">
 						<use xlink:href="#icon-4"></use>
 					</svg>
 
-					<svg role="img" class="navbar_icon__close icon-1" width="20" height="20">
+					<svg role="img" class="navbar__icon_close icon-1" width="20" height="20">
 						<use xlink:href="#icon-1"></use>
 					</svg>
 
@@ -53,20 +54,11 @@
 							{{ end }}
 						</ul>
 
-						<div class="navbar_btn-group">
+						<div class="navbar__btn-group">
 
 							{{- partial "_lang.html" . -}}
 	
-							<a href="tel: .Site.Params.mobile" class="btn__call">
-	
-								<svg role="img" class="icon-5" width="20" height="20">
-									<use xlink:href="#icon-5"></use>
-								</svg>
-	
-								<span>
-									{{ .Site.Params.mobile }}
-								</span>
-							</a>
+							{{- partial "_btn-call.html" . -}}
 						
 						</div>
 
@@ -85,3 +77,22 @@
 
 </header>
 <!-- END header -->
+
+{{ if ne .IsHome true }}
+	<style>
+		.header {
+			background-color: #000;
+			color: #fff;
+		}
+
+		.btn_call:hover, .btn_call:active, .btn_call:focus {
+			color: #fff;
+			fill: #fff;
+		}
+
+		.btn_call:hover svg, .btn_call:active svg, .btn_call:focus svg {
+			fill: #fff;
+		}
+		
+	</style>
+{{ end }}

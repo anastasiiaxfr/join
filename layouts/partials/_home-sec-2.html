@@ -4,9 +4,9 @@
 {{ with $data.homepage.section_2 }}
 
 
-<section class="section section__2">
-    <div class="section_container">
-        <div class="section_row">
+<section class="section section_2">
+    <div class="section__container">
+        <div class="section__row">
 
 
             <div class="box">
@@ -14,14 +14,14 @@
                     {{ .title | markdownify }}
                 </h2>
 
-                <div class="box_wrap">
+                <div class="box__wrap">
                     {{ range .lists }}
                     <div class="col-md-4">
-                        <div class="box_item">
-                            <div class="box_num">
+                        <div class="box__item">
+                            <div class="box__num">
                                 {{ .val }}
                             </div>
-                            <div class="box_text">
+                            <div class="box__text">
                                 {{ .item | markdownify }}
                             </div>
                         </div>

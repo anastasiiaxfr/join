@@ -1,14 +1,14 @@
-<section class="modal_overlay">
+<section class="">
 
     {{ if .Site.Params.form }}
     {{ with .Site.Params.form }}
     <div class="modal">
-        <div class="modal_container">
+        <div class="modal__container">
 
-            <h2 class="modal_title">
+            <h2 class="modal__title">
                 {{ .title }}
             </h2>
-            <h4 class="modal_description">
+            <h4 class="modal__description">
                 {{ .title_sub }}
             </h4>
 
@@ -19,13 +19,13 @@
 
                 {{ if eq .type "submit" }}
 
-                <input class="btn__bg" type="{{ .type }}" required value="{{ .placeholder }}">
+                <input class="btn_bg" type="{{ .type }}" required value="{{ .placeholder }}">
                 {{ else }}
 
-                <div class="form_group">
-                    <input class="form_field" type="{{ .type }}" required name="{{ .name }}" placeholder=" "
+                <div class="form__group">
+                    <input class="form__field" type="{{ .type }}" required name="{{ .name }}" placeholder=" "
                         autocomplete="off">
-                    <label class="form_label" for="{{ .name }}">
+                    <label class="form__label" for="{{ .name }}">
                         {{ .placeholder }}
                     </label>
                 </div>

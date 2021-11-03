@@ -17,8 +17,10 @@
 
             <div class="col-md-9">
 
-                <img class="img img__3" src="{{ .bg_img | relURL }}" alt="{{ .Title }}">
-
+                <picture>
+                    <source srcset="{{ .bg_img | relURL }}" type="image/webp" alt="{{ .Title }}" class="img img__3">
+                    <img src="{{ .bg_img | relURL }}" alt="{{ .Title }}" class="img img__3">
+                </picture>
 
                 <div class="row pt-4">
 
@@ -48,7 +50,12 @@
             </div>
             
             <div class="col-md-3">
-                <img class="img img__2" src="{{ .bg_img | relURL }}" alt="{{ .Title }}">
+
+                <picture>
+                    <source srcset="{{ .bg_img | relURL }}" type="image/webp" alt="{{ .Title }}" class="img img__2">
+                    <img src="{{ .bg_img | relURL }}" alt="{{ .Title }}" class="img img__2"  width="100%" height="auto">
+                </picture>
+
             </div>
 
         </div>

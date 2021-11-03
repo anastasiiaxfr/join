@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 {{- partial "head.html" . -}}
 
-<body lang="{{ with .Site.LanguageCode }}{{ . }}{{ else }}en-US{{ end }}" class="page-body">
+<body lang="{{ with .Site.LanguageCode }}{{ . }}{{ else }}en-US{{ end }}" class="page__body">
 
-  <main class="page-wrapper">
+  <main class="page__wrapper">
 
     {{- partial "preloader.html" . -}}
     <div class="header-span"></div>
@@ -24,89 +24,6 @@
   <script src="{{ $script.Permalink | relURL }}?v={{ now.Format " 01-02-2006-14-52-26"}}"></script>
 
   {{- partial "_svg.html" . -}}
-
-  <script>
-    const field_name = document.querySelector("[name=name]");
-    const field_email = document.querySelector("[name=email]");
-    
-    Inputmask("*{1,20}[.*{1,20}][.*{1,20}][.*{1,20}]@*{1,20}[.*{2,6}][.*{1,2}]", {
-      placeholder: "your@mail.com",
-    }).mask(field_email);
-
-    const field_phone = document.querySelectorAll("[name=tel]");
-
-
-    for (let i = 0; i < field_phone.length; i++) {
-      Inputmask('(999) 99-99-99-999').mask(field_phone[i]);
-    }
-
-
-    const token = '{{ .Site.Params.tm_token }}';
-    const chat_id = '{{ .Site.Params.tm_id }}';
-
-    const date = new Date().toLocaleString();
-
-    let validateForms = function (selector, rules, callback) {
-      new window.JustValidate(selector, {
-        rules: rules,
-        focusWrongField: true,
-        submitHandler: function (form, values, ajax) {
-          const msg = callback(values);
-          const success = document.createElement('label');
-          success.className = "form_label__success";
-          success.innerHTML = 'Your data sent!';
-          form.append(success);
-          form.querySelector('[type=submit]').disabled = true;
-          ajax({
-            url: 'https://api.telegram.org/bot' + token + '/sendMessage?chat_id=' + chat_id + '&parse_mode=html' + '&text=' + encodeURIComponent(msg),
-            method: 'POST',
-            data: {
-              chat_id: $('{{ .Site.Params.tm_id }}').val(),
-              text: $('input').val()
-            },
-            success: function () {
-              alert('your message has been sent!');
-            },
-            async: true,
-            callback: (response) => {
-              console.log(response);
-            }
-          });
-        },
-        invalidFormCallback: function (errors) {
-          console.log(errors);
-        },
-      });
-    };
-
-    validateForms('.js-form', {
-      tel: {
-        required: true,
-        minLength: "10"
-      },
-      name: {
-        required: true,
-        minLength: "2"
-      },
-      email: {
-        required: true,
-        email: true
-      },
-      url: {
-        required: true,
-      },
-    }, (values) => {
-      return `
-Source: join1.com,
-ФИО:  ${values['name']},
-E-mail: ${values['email']},
-Телефон: ${values['tel']},
-Сайт: ${values['url']},
-    `;
-    }
-    );
-
-</script>
 
 
 <!-- <script>
@@ -166,40 +83,39 @@ const animateCSS = (element, animation, delay, prefix = 'animate__') =>
    function animation(element, animation, delay, prefix = 'wow', duration){
     const node = document.querySelector(element);
     node.setAttribute('data-wow-delay', `${delay}` || '0.5s');
-    node.setAttribute('data-wow-duration', `${duration}` || '0.5s');
+    //node.setAttribute('data-wow-duration', `${duration}` || '0.5s');
     node.classList.add(`${prefix}`, `${animation}`);
   }
 
-  animation('header', 'fadeInDown');
+animation('.header', 'fadeInDown', '0');
 
-  animation('.section__hero h1', 'fadeInDown', '0.1s');
-  animation('.section__hero .text__subtitle', 'fadeInUp', '0.15s');
-  animation('.section__hero .img__hero', 'fadeInRight', '0.25s');
-  animation('.section__hero .btn__bg', 'fadeInUp', '0.35s');
-  
-  
-  animation('.section__1', 'fadeInUp');
-  animation('.section__2', 'fadeInUp', '0.1s');
-  animation('.section__3', 'fadeInUp', '0.12s');
-  animation('.section__4', 'fadeInUp', '0.13s');
-  animation('.section__5', 'fadeInUp', '0.14s');
-  animation('.section__6', 'fadeIn', '0.15s');
-  
+animation('.section_hero h1', 'fadeInDown', '0.1s');
+animation('.section_hero .text_subtitle', 'fadeInUp', '0.12s');
+animation('.section_hero .img_hero', 'fadeInRight', '0.13s');
 
-  animation('.section__3 .col-md-6:nth-child(1)', 'fadeInUp', '0.12s');
-  animation('.section__3 .col-md-6:nth-child(2)', 'fadeInUp', '0.14s');
-  animation('.section__3 .col-md-6:nth-child(3)', 'fadeInUp', '0.16s');
-  animation('.section__3 .col-md-6:nth-child(4)', 'fadeInUp', '0.18s');
-  animation('.section__3 .col-md-6:nth-child(5)', 'fadeInUp', '0.2s');
-  animation('.section__3 .col-md-6:nth-child(6)', 'fadeInUp', '0.22s');
-
-
-  animation('.str_item:nth-child(1)', 'fadeInUp', '0.23s');
-  animation('.str_item:nth-child(2)', 'fadeInUp', '0.27s');
-  animation('.str_item:nth-child(3)', 'fadeInUp', '0.31s');
-  animation('.str_item:nth-child(4)', 'fadeInUp', '0.35s');
+animation('.section_hero .btn_bg', 'fadeInUp', '0.14s');
 
   
+animation('.section_1', 'fadeInUp', '0');
+animation('.section_2', 'fadeInUp', '0.1s');
+animation('.section_3', 'fadeInUp', '0.12s');
+animation('.section_4', 'fadeInUp', '0.13s');
+animation('.section_5', 'fadeInUp', '0.14s');
+animation('.section_6', 'fadeIn', '0.15s');
+
+animation('.section_3 .col-md-6:nth-child(1)', 'fadeInUp', '0.12s');
+animation('.section_3 .col-md-6:nth-child(2)', 'fadeInUp', '0.14s');
+animation('.section_3 .col-md-6:nth-child(3)', 'fadeInUp', '0.16s');
+animation('.section_3 .col-md-6:nth-child(4)', 'fadeInUp', '0.18s');
+animation('.section_3 .col-md-6:nth-child(5)', 'fadeInUp', '0.2s');
+animation('.section_3 .col-md-6:nth-child(6)', 'fadeInUp', '0.22s');
+
+animation('.str__item:nth-child(1)', 'fadeInUp', '0.23s');
+animation('.str__item:nth-child(2)', 'fadeInUp', '0.27s');
+animation('.str__item:nth-child(3)', 'fadeInUp', '0.31s');
+animation('.str__item:nth-child(4)', 'fadeInUp', '0.35s');
+
+
   new WOW().init();
 
 </script>

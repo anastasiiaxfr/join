@@ -6,7 +6,13 @@
   {{ $pageLang := .Page.Lang}}
 
   <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-    {{ $pageLang }}
+   
+    {{ range $siteLanguages }}
+    {{ if eq $pageLang .Lang}}
+    {{ .LanguageName }}
+    {{ end }}
+    {{ end }}
+
   </button>
 
 

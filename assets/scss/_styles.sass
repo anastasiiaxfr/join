@@ -1,5 +1,8 @@
 .page
-	&-body
+	&__single
+		@extend .col-md-8, .mx-auto, .py-5, .my-5
+
+	&__body
 		display: flex
 		flex-direction: column
 		color: $gray
@@ -7,11 +10,25 @@
 		scroll-behavior: smooth
 		overflow-x: hidden
 
-	&-wrapper
+	&__wrapper
 		flex: 1 0 auto
 		
-	&-main
+	&__main
 		+ft(14, 14*1.5, 400, $ffText)
+
+	&__container
+		li
+			+mg((b, 20px))
+
+			&:last-child
+				+mg((t, 0))
+
+		p
+			+mg((b, 10px))
+			+ft(12, 12*1.5, 400, $ffText)
+
+			&:last-child
+				+mg((b, 0))
 
 
 .section
@@ -25,23 +42,25 @@
 	+maw($sm)
 		+pd((t, 40px), (b, 40px))	
 			
-	&_container
+	&__container
 		@extend .container
+		max-width: rem(1148)
 
-	&_row
+	&__row
 		@extend .row
 
-	&_col
-		&__l
+	&__col
+		&_l
 			@extend .col-md-6, .order-1, .order-md-0, .mt-4
 
 			+maw($xs)
 				text-align: center
 
-	&_hgroup
-    	@extend .col-md-8, .mx-auto, .text-center
+	&__hgroup
+		max-width: rem(650)
+		@extend .col-md-8, .mx-auto, .px-0, .text-center
 
-	&__hero
+	&_hero
 		+pd((t, 100px))
 
 		+maw($md)
@@ -53,15 +72,34 @@
 		+maw($xs)
 			+pd((t, 30px))
 
-		.section_row
+		.section__row
 			align-items: center
 
-	&__2
+	&_1
+		.section__row
+			+mg((l, auto), (r, auto))
+
+	&_2
+		+pd((t, 100px), (b, 60px))
+		
 		+maw($sm)
 			+pd((t, 30px), (b, 0px))
+		
 
-	&__5
-		@extend .mb-5
+		.section__row
+			+mg((r, auto), (l, auto))
+			//+pd((l, 12px), (r, 12px))
+
+	&_3
+		+pd((t, 0))
+
+	&_4
+		.section__row
+			+mg((r, auto), (b, auto))
+			+pd((l, 12px), (r, 12px))
+
+	&_5
+		+pd((t, 100px), (b, 160px))
 
 		+maw($xlg)
 			+pd((t, 0px))
@@ -69,7 +107,7 @@
 		+maw($xs)
 			+pd((t, 0px))
 
-	&__6
+	&_6
 		+theme(gray)
 		border-radius: 0
 		overflow: hidden
@@ -82,44 +120,65 @@
 		+maw($xs)
 			+pd((t, 60px), (b, 60px))
 			text-align: center
+
+		.section__row
+			+mg((l, auto), (r, auto))
 	
 .img
 	display: block
 	object-fit: contain
+	height: auto
 	width: auto
 	max-width: 100%
 
-	&__2
+	&_2
+		display: block
+		object-fit: contain
+
+		max-width: rem(264)
+		margin: rem(0) auto
+
+		+maw($sm)
+			+mg((t, 35px), (b, 35px))
+
 		+maw($xs)
 			+mg((t, 25px))
 
-	&__3
+	&_3
 		@extend .d-block, .d-sm-none, .pt-5
 
 .card
 	max-width: rem(540)
 	padding: rem(25) 5% rem(32)
+	margin: 0 auto
 	@extend %card
 
-	&_wrap
-		@extend .row, .mx-auto
+	&__wrap
+		@extend .row, .mx-auto, .px-0
+		max-width: rem(1128)
 		+mg((t, 60px), (b, 60px))
 
 		+maw($xs)
 			+mg((t, 20px), (b, 20px))
 
-	&_img
+	&__img
 		display: block
 		object-fit: contain
 		max-width: rem(368)
 		width: 100%
 		+mg((l, auto), (r, auto))
 
-	&_item
-		@extend .col-md-6, .text-center
+	&__item
+		@extend .col-md-6, .text-center, .px-0
 		+mg((t, 20px), (b, 20px))
 			
-	&_title
+		&:first-child .card
+			@extend .me-md-auto, .ms-md-0
+
+		&:last-child .card
+			@extend .ms-md-auto, .me-md-0
+
+	&__title
 		+ft(20, 24, 600, $ffHeading)
 		+mg((t, 15px))
 
@@ -137,18 +196,17 @@
 	color: $gray
 
 	+maw($sm)
-		width: 90%	
 		padding: rem(40) rem(20)
-		margin: 0 auto
+		margin: 0 auto rem(40)
 
-	&_wrap
+	&__wrap
 		@extend .row, .mx-auto
 		+mg((t, 60px))
 
 		+maw($sm)
 			+mg((t, 30px))
 			
-	&_content
+	&__content
 		+flex(flex, center, center, wrap)
 		flex-direction: column
 		height: 100%
@@ -174,7 +232,7 @@
 				+ft(14, 24, 600, $ffText)
 
 
-	&_item
+	&__item
 		+flex(inline-flex, center, flex-start, nowrap)
 		max-width: rem(301)
 		text-align: left
@@ -185,7 +243,7 @@
 			+mg((t, 20px), (b, 20px))
 			text-align: center
 
-	&_num
+	&__num
 		+mg((r, 12px))
 		+ft(55, 50, 700, $ffHeading)
 
@@ -196,7 +254,7 @@
 		+maw($md)
 			+mg((r, auto))
 	
-	&_text
+	&__text
 		+ft(16, 24, 600, $ffHeading)
 			
 		+miw($lg)
@@ -218,7 +276,7 @@
 		svg
 			transform: translateY(-10px)
 
-	&_pic
+	&__pic
 		svg
 			display: block
 			+sz(70px, 70px)
@@ -226,43 +284,40 @@
 
 			transition: $trs
 
-	&_title
+	&__title
 		+ft(20, 28, 600, $ffHeading)
 
-	&_desc
+	&__desc
 		+ft(14, 22, 400, $ffText)
 
 	+maw($sm)
 		max-width: 100%
 	
-
-.img
-	&__2
-		display: block
-		object-fit: contain
-
-		max-width: rem(264)
-		margin: rem(35) auto
 		
 		
 .figure
-	+mg((t, 20px), (b, 20px))
+	+mg((t, 0px), (b, 0px))
 	
-	&_title
+	&__title
 		+ft(20, 28, 600, $ffHeading)
 
 		+maw($xs)
 			+ft(16, 24, 600, $ffHeading)
 
-	&_desc
+	&__desc
 		+ft(14, 22, 400, $ffText)
 
 		+maw($xs)
 			+ft(12, 20, 400, $ffText)
 
+	+maw($sm)
+		+mg((t, 15px), (b, 15px))
+
 
 .str
+	max-width: rem(571)
 	margin: 0 auto
+
 
 	+maw($xs)
 		width: 90%
@@ -291,7 +346,7 @@
 		+sz(2px, 100%)
 		background-color: $yellow
 
-	&_num
+	&__num
 		+flex(inline-flex, center, center, nowrap)
 		+sz(20px, 20px)
 		+mg((r, 20px))
@@ -304,7 +359,7 @@
 		position: relative
 		z-index: 1
 
-	&_item
+	&__item
 		list-style-type: none
 
 		+pd((b, 27px))
@@ -318,7 +373,7 @@
 		+maw($lg)
 			+pd((b, 50px))
 
-	&_content
+	&__content
 		h4
 			+ft(20, 28, 600, $ffHeading)
 
@@ -331,22 +386,24 @@
 				+ft(12, 20, 400, $ffHeading)
 
 .list
+	max-width: rem(240)
 	+mg((t, 0), (b, 0px))
 
 	+maw($sm)
+		+mg((l, auto), (r, auto))
 		text-align: center
 
-	&_title
+	&__title
 		+ft(16, 24, 600, $ffHeading)
 
-	&_content
+	&__content
 		+ft(16, 25, 400, $ffText)
 
 		+maw(1200)
 			p
 				display: inline-block
 
-	&_img
+	&__img
 		display: block
 		+sz(70px, 70px)
 
@@ -364,51 +421,76 @@
 	display: block
 
 	img
-		max-width: rem(101)
+		object-fit: contain
+	
 
+// .modal
+// 	position: relative
+// 	+theme(white)
+// 	@extend %card
+// 	border-radius: $brs1
+// 	z-index: 100500
 
-.modal
-	position: relative
-	+theme(white)
-	@extend %card
-	border-radius: $brs1
-	z-index: 100500
+// 	+flex(flex, center, center, nowrap)
+// 	+sz(auto, auto)
 
-	+flex(flex, center, center, nowrap)
-	+sz(auto, auto)
+// 	max-width: rem(592)
+// 	+mg((all, auto))
+// 	padding: rem(52)
 
-	max-width: rem(592)
-	+mg((all, auto))
-	padding: rem(52)
+// 	&__container
+// 		text-align: center
+// 		color: $gray
 
-	&_container
-		text-align: center
-		color: $gray
+// 	&__title
+// 		+ft(28, 34, 800, $ffHeading)
 
-	&_title
-		+ft(28, 34, 800, $ffHeading)
+// 	&__description
+// 		+mg((t, 12px), (b, 26px))
+// 		+ft(16, 24, 400, $ffText)
 
-	&_description
-		+mg((t, 12px), (b, 26px))
-		+ft(16, 24, 400, $ffText)
-
-	&_overlay
-		+ps(fixed, (t, 0), (l, 0), (b, 0), (r, 0))
-		+flex(flex, center, center, nowrap)
-		+sz(100%, 100%)
-		+mg(all, auto)
-		z-index: 1050
-		background-color: rgba($black, 0.5)
+// 	&__overlay
+// 		+ps(fixed, (t, 0), (l, 0), (b, 0), (r, 0))
+// 		+flex(flex, center, center, nowrap)
+// 		+sz(100%, 100%)
+// 		+mg(all, auto)
+// 		z-index: 1050
+// 		background-color: rgba($black, 0.5)
 
 
 .table
+	+mg((t, 0), (b, 0), (r, auto), (l, auto))
 	vertical-align: middle
 	color: $gray
 
 	td
+		padding: 0
 		border: none
 
-	&__1
+
+	&_1
+		margin: 0 auto
+		h2
+			+mg((b, 60px), (t, 90px))
+
+			+maw($sm)
+				+mg((b, 30px), (t, 0px))
+
+		td
+			max-width: rem(838)
+			+pd(all, 0)
+			padding: 0
+
+		.table
+			&__row
+				&:first-child  
+					+pd((t, 90px))
+				&:last-child
+					vertical-align: top
+
+		.row
+			max-width: rem(838)
+
 
 		+maw($sm)
 			width: 90%
@@ -418,25 +500,28 @@
 				display: block
 
 
-	&_row
+	&__row
 		vertical-align: bottom
 
-		&__btm
+		&_btm
 			vertical-align: bottom
 
-	&_data
+	&__data
 		border: none
 		color: inherit
 
 		+maw($lg)
 			display: block
 
-		&__inline
+		&_top
+			max-width: rem(598)
+
+		&_inline
 			border: none
 			color: inherit
 
 			.logo
-				+mg((b, 25px))
+				+mg((b, 18px))
 
 			+maw($lg)
 				+flex(flex, center, center, nowrap)

@@ -4,30 +4,33 @@
 {{ with $data.homepage.section_1 }}
 
 
-<section class="section section__1">
-    <div class="section_container">
-        <div class="section_row justify-content-center">
+<section class="section section_1">
+    <div class="section__container">
+        <div class="section__row justify-content-center">
 
 
-            <div class="section_hgroup">
+            <div class="section__hgroup">
                 <h2>
                     {{ .title | markdownify }}
                 </h2>
-                <p class="text__sub">
+                <p class="text_sub">
                     {{ .title_sub | markdownify }}
                 </p>
             </div>
 
-            <div class="card_wrap">
+            <div class="card__wrap">
 
                 {{ range .cards }}
-                <div class="card_item">
+                <div class="card__item">
 
                     <div class="card">
 
-                        <img src="{{ .icon | relURL }}" alt="{{ .Title }}" class="card_img">
+                        <picture>
+                            <source srcset="{{ .icon_webp | relURL }}" type="image/webp" alt="{{ .Title }}" class="card__img" width="368" height="267">
+                            <img src="{{ .icon | relURL }}" alt="{{ .Title }}" class="card__img" width="100%" height="auto">
+                        </picture>
 
-                        <div class="card_title">
+                        <div class="card__title">
                             {{ .title | markdownify }}
                         </div>
                     </div>

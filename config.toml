@@ -7,23 +7,23 @@ paginate = "6"
 relativeURLs = true
 summaryLength = "50"
 title = "jo1n - Главная"
-[Languages.en]
-contentDir = "content/en"
-home = "Home"
-languageCode = "en-us"
-languageName = "En"
-weight = 3
+# [Languages.en]
+# contentDir = "content/en"
+# home = "Home"
+# languageCode = "en-us"
+# languageName = "En"
+# weight = 3
 [Languages.ru]
 contentDir = "content/ru"
 home = "Главная"
 languageCode = "ru"
-languageName = "Ru"
+languageName = "Ру"
 weight = 2
 [Languages.ua]
 contentDir = "content/ua"
 home = "Головна"
-languageCode = "Ua"
-languageName = "Ua"
+languageCode = "ua"
+languageName = "Укр"
 weight = 1
 [[Languages.ua.footer.col]]
 links = [["Оферта", "/offer/"], ["Політика обробки персональних даних", "/personal-data/"]]
@@ -49,27 +49,28 @@ method = "POST"
 [[Languages.ua.params.form.field]]
 enable = true
 name = "name"
-placeholder = "* Ім`я"
+placeholder = "**\\*** Ім`я"
 required = ""
 type = "text"
-[[Languages.ua.params.form.field]]
-enable = true
-name = "email"
-placeholder = "* Email"
-required = ""
-type = "email"
+# [[Languages.ua.params.form.field]]
+# enable = true
+# name = "email"
+# placeholder = "* Email"
+# required = ""
+# type = "email"
 [[Languages.ua.params.form.field]]
 enable = true
 name = "tel"
-placeholder = "Телефон"
+placeholder = "+38 (0__) ___ - __ - __"
+label = "Телефон"
 required = ""
 type = "tel"
-[[Languages.ua.params.form.field]]
-enable = true
-name = "url"
-placeholder = "Сайт магазину"
-required = ""
-type = "url"
+# [[Languages.ua.params.form.field]]
+# enable = true
+# name = "url"
+# placeholder = "Сайт магазину"
+# required = ""
+# type = "url"
 [[Languages.ua.params.form.field]]
 enable = true
 placeholder = "Надіслати"
@@ -140,7 +141,7 @@ link = "plugins/js/jquery.min.js"
 [[params.plugins.js]]
 link = "plugins/js/just-validate.min.js"
 [[params.plugins.js]]
-link = "plugins/js/inputmask.min.js"
+link = "plugins/js/smtp.js"
 [params.preloader]
 enable = true
 preloader = ""

@@ -75,7 +75,7 @@
 		+maw(992)
 			padding-top: 15px	
 
-	&_container
+	&__container
 		@extend .d-flex, .justify-content-between, .align-items-center
 		width: 100%
 		max-width: 100%
@@ -83,17 +83,17 @@
 		+maw($lg)
 			flex-wrap: wrap
 	
-	&_btn-group
+	&__btn-group
 		@extend .d-flex
 		flex-wrap: wrap
 		
 
-	&_icon
-		&__close
+	&__icon
+		&_close
 			+sz(40px, 40px)
 			+mg((l, -10px))
 
-		&__open
+		&_open
 			+sz(25px, 25px)
 
 	&-toggler 
@@ -101,24 +101,27 @@
 
 	[aria-expanded="false"]
 	
-		.navbar_icon
-			&__close
+		.navbar__icon
+			&_close
 				display: none
 
-			&__open
+			&_open
 				display: block
 
 	[aria-expanded="true"]
 
-		.navbar_icon
-			&__close
+		.navbar__icon
+			&_close
 				display: block
 
-			&__open
+			&_open
 				display: none
 
 .header
-	&_container
+	&_bd
+		box-shadow: $bxsd1	
+
+	&__container
 		@extend .container
 
 	.nav
@@ -127,23 +130,23 @@
 
 		padding: rem(15) 0
 
-		&_btn-group
+		&__btn-group
 			+flex(flex, center, center, nowrap)
 
 		&-collapse
 			+flex(flex, center, center, nowrap)
 			flex: 1
 
-		&_toggler
+		&__toggler
 			display: none
 
-		&_link
+		&__link
 			padding: rem(10) rem(25)
 
 			+ft(16, 24, 600, $ffHeading)
 
 	+maw(1200)
-		.btn__call
+		.btn_call
 			min-width: auto
 	
 			span
@@ -151,7 +154,7 @@
 
 
 	+maw($lg)
-		.btn__call
+		.btn_call
 			min-width: auto
 
 			span
@@ -162,7 +165,7 @@
 		.navbar
 			&-collapse
 				+ps(absolute, (t, 100%), (l, 0))
-				padding: 15px
+				padding: rem(15)
 				border-radius: $brs1/2
 				
 				width: 100%
@@ -177,7 +180,7 @@
 		.lang-switcher
 			order: 2
 
-		.btn__call
+		.btn_call
 			width: 100%
 
 			justify-content: flex-start
@@ -206,33 +209,40 @@
 	+maw($sm)
 		padding: 15% 10%
 
-	&_box
+	&__box
 		+flex(flex, stretch, flex-start, wrap)
 		height: 100%
 
-	&_container
+	&__container
 		@extend .container
 
-	&_row
+	&__row
 		@extend .row, .justify-content-between
 
-	&_col
-		&__1
-			@extend .col-12, .col-lg-2, .mb-4
+	&__col
+		&_1
+			@extend .col-12, .col-lg-2, .mb-4, .px-0
 
-		&__2
-			@extend  .col-md-3, .col-lg-2, .my-4
+		&_2
+			@extend  .col-md-3, .col-lg-2, .my-4, .my-md-0, .px-0
 
-		&__3
-			@extend .col-md-4, .col-lg-3, .my-4
+		&_3
+			@extend .col-md-4, .col-lg-3, .my-md-0, .my-4, .px-0
+			max-width: rem(200)
+	
+		&_4
+			@extend .col-md-4, .col-lg-3, .my-md-0, .my-4, .px-0
+			max-width: rem(256)
 
-	&_text
-		&__copy
-			@extend .text__copy, .mt-4, .mt-sm-0
+	&__text
+		&_copy
+			@extend .text__copy, .mt-4, .mt-sm-0, .px-0
+			transform: translateY(-100%)
 
-	&_nav
+	&__nav
 		li a
-			+ft(16, 25, 400, $ffText)
+			//+ft(16, 25, 400, $ffText)
+			+ft(14, 14*1.2, 400, $ffText)
 
 	.text__copy
 		+mg((b, 0px), (t, auto))

@@ -3,24 +3,24 @@
 {{ if $data.homepage.section_features }}
 {{ with $data.homepage.section_features }}
 
-<section class="section section__3">
-    <div class="section_container">
-        <div class="section_row">
+<section class="section section_3">
+    <div class="section__container">
+        <div class="section__row">
 
             {{ range .items }}
             <div class="col-md-6 col-lg-4">
                 <figure class="feature">
-                    <div class="feature_pic">
+                    <div class="feature__pic">
                         <svg role="img" class="{{ .icon }}">
                             <use xlink:href="#{{ .icon }}"></use>
                         </svg>
                     </div>    
-                    <figcaption class="feature_caption">
+                    <figcaption class="feature__caption">
 
-                        <h3 class="feature_title">
+                        <h3 class="feature__title">
                             {{ .title | markdownify }}
                         </h3>
-                        <div class="feature_desc">
+                        <div class="feature__desc">
                             {{ .description | markdownify }}
                         </div>
 
