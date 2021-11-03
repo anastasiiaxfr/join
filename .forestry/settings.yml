@@ -4,6 +4,15 @@ auto_deploy: false
 admin_path: ''
 webhook_url: 
 sections:
+- type: directory
+  path: i18n
+  label: i18n
+  create: all
+  match: "**/*"
+- type: document
+  path: data
+  label: data
+  match: "**/*"
 - type: heading
   label: Affiliates
 - type: document
