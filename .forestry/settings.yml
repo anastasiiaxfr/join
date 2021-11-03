@@ -4,6 +4,8 @@ auto_deploy: false
 admin_path: ''
 webhook_url: 
 sections:
+- type: heading
+  label: Партнери
 - type: document
   path: content/en/affiliates/_index.md
   label: Партнери (EN)
