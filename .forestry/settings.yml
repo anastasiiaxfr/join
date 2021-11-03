@@ -12,6 +12,9 @@ sections:
   path: content/ru/banks
   label: Банкам і МФО (RU)
   match: "**/*"
+- type: document
+  path: content/en/banks
+  label: Банкам і МФО (EN)
 - type: heading
   label: Про нас
 - type: document
