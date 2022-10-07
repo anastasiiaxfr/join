@@ -2,44 +2,108 @@
 $black: #000
 $white: #fff
 
-$main: #FFCD00
-$yellow_light: #fff5cc
+$grey: #bdaca8
 
-$gray: #414141
-$gray_light: #f9f9f9
+$grey2: #444444
+$grey3: #6f6f70
+$grey4: #494b55
 
-$red: #FF2828
-$green: green
-	
+$grey5: #bdaca8
+
+$grey6: rgba(17, 17, 17, 0.5)
+$grey7: #222
+$grey8: #bbbbbb
+$grey9: #4a4b56
+$grey10: #777
+$grey11: #f4f4f4
+$grey12: #bdaca8
+$grey13: #f5f3f2
+$grey14: rgba(28, 28, 28, 0.4)
+$grey15: #797979
+$grey16: #222
+$grey17: #a5a5a5
+$grey18: rgb(189, 172, 168)
+$grey19: #666666
+$grey20: #f8f8f8
+$grey21: #4d4f5b 
+$grey22: #d9d9d9 
+$grey23: #303030
+$grey24: rgba(47, 47, 47, 0.8)
+$grey25: #2e2e2e
+$grey26: #838796
+$grey27: #6d6c76
+$grey28: #1e1f22
+$grey29: #28292d
+$grey30: #e1e1e1
+$grey31: #9a9a9a
+$grey32: #a6a6a6
+$grey33: #e4e4e4
+$grey34: #eaeaea
+$grey35: #616161
+$grey36: #9b9b9b
+$grey37: #282828
+$grey38: #e1e1e1
+$grey39: #fbfbfb
+$grey40: #4d4d4d
+$grey41: #d2d2d2
+$grey42: #e6e6e6
+$grey43: #c8c8c8
+$grey44: #f5f5f5
+$grey45: #d3d3d3
+$grey46: #aaaaaa
+$grey47: #797979
+$grey48: #f4f5f6
+$grey49: #232527
+$grey50: #4c4c4c
+$grey51: #d5d5d5
+$grey52: #9e9e9e
+$grey53: #dddddd
+$grey54: #333333
+$grey55: rgba(35, 41, 50, 0.8)
+$grey56: #353535
+$grey57: #2f2f2f
+$grey58: #e0e0e0
+$grey59: #555555
+$grey60: #a7a7a7
+$grey61: #d0d0d0
+$grey62: rgba(35, 35, 35, 0.5)
+$grey63: rgba(246, 246, 246, 0.6)
+$grey64: #919191
+$grey65: #777777
+$grey66: rgba(110, 106, 102, 0.5)
+$grey67: #121212
+$grey68: #f7f7f7
+$grey69: #eeeeee
+$grey70: #f1f2f2
+$grey71: #e9e9e9
+$grey72: #e2e2e2
+
+$trs: all 300ms ease
+$trs2: all 0.22s
+
+$yellow: #dfba62
+$yellow2: #d2b871
+$yellow3: #d8b156
+$yellow4: #c08c4d
+$yellow5: #e2b13c
+$orange: #ff6300
+$blue: #00afe5
 
 $ffHeading: 'Montserrat'
-$ffText: 'Montserrat'
+$ffText: 'Open Sans'
 $ffBack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"
 
-$xlg: 1400
-$lg: 1150
-$md: 978
-$sm: 768
-$xs: 480
-$xxs: 420
+
+$lg: 1150px
+$md: 960px
+$sm: 768px	
+$xs: 520px
+$xxs: 420px
+
+$pgLogoW: 130
 
 
-$bd1: 1px solid #E0E0E0
-$bd2: 1px solid #AEAEAE
-
-$bxsd1: 0 0 10px -4px rgba($black, 0.1)
-$bxsd2: 0px 0 0px 1px #f9f9f9
-
-$brs0: 4px
-$brs: 8px
-$brs1: 24px
-$brs2: 16px
-
-$trs: all 0.35s ease-in-out
-
-
-
-=ft($fz, $lh: 16, $fw: 400, $ff: $ffText)
+=font($fz, $lh: 16, $fw: 400, $ff: $ffText)
 	$lh: $lh/$fz
 	$fz: $fz/16 + rem
 	$ff: $ff, $ffBack
@@ -48,25 +112,15 @@ $trs: all 0.35s ease-in-out
 
 =theme($theme)
 	@if $theme == dark
-		background-color: $black
+		background-color: $black 
 		color: $white
+
+	@if $theme == main
+		color: $black
 
 	@if $theme == white
 		background-color: $white
-		color: $gray
-
-	@if $theme == main
-		background-color: $main
-		color: $gray
-
-	@if $theme == light
-		background-color: rgba($yellow_light, 0.5)
 		color: $black
-
-	@if $theme == gray
-		border-radius: $brs2 
-		background-color: $gray_light
-		color: $gray
 
 =sz($w, $h)
 	width: $w
@@ -78,10 +132,30 @@ $trs: all 0.35s ease-in-out
 	justify-content: $jc
 	flex-wrap: $fxw
 
+//  +position(absolute, (t, 0), (r, 0))
+=ps($ps, $val)
+	position: $ps
+	@each $param, $value in $ps
+		@if $param == t
+			top: $value
 
-// input +padding((t, 30px), (b, 40px))
-// +position(absolute, (t, 0), (r, 0))
-=position($ps, $val)
+		@if $param == b
+			bottom: $value
+
+		@if $param == l
+			left: $value
+
+		@if $param == r
+			right: $value
+
+=position($params...)
+	@each $par, $val in $params
+		@if $par != null and $val != null
+			+ps($par,  $val)
+
+
+//  +position(absolute, (t, 0), (r, 0))
+=ps($ps, $val)
 	@each $x in $ps
 		@if $x == t
 			top: $val
@@ -95,14 +169,14 @@ $trs: all 0.35s ease-in-out
 		@if $x == r
 			right: $val
 
-=ps($params...)
+=position($params...)
 	position: nth($params, 1)
 	@each $par, $val in $params
 		@if $par != null and $val != null
-			+position($par, $val)
+			+ps($par, $val)
 
 // input +padding((t, 30px), (b, 40px))
-=padding($pd, $val)
+=pd($pd, $val)
 	@if $pd == t
 		padding-top: $val
 
@@ -115,17 +189,15 @@ $trs: all 0.35s ease-in-out
 	@if $pd == r
 		padding-right: $val
 
-	@if $pd == all
-		padding: $val
 
-	
-
-=pd($params...)
+=padding($params...)
 	@each $par, $val in $params
 		@if $par != null and $val != null
-			+padding($par, $val)
+			+pd($par, $val)
 
-=margin($mg, $val)
+
+
+=mg($mg, $val)
 	@if $mg == t
 		margin-top: $val
 
@@ -138,41 +210,18 @@ $trs: all 0.35s ease-in-out
 	@if $mg == r
 		margin-right: $val
 
-	@if $mg == all
-		margin: $val
-
-=mg($params...)
+=margin($params...)
 	@each $par, $val in $params
 		@if $par != null and $val != null
-			+margin($par, $val)
+			+mg($par, $val)
 
-// =sp($prop, $params...)
-// 	@if $prop == mg
-// 		+mg($params)
-// 	@if $prop == pd 
-// 		+pd($params)	
+=sp($prop, $params...)
+	@if $prop == mg
+		+margin($params)
+	@if $prop == pd 
+		+padding($params)	
+	
 
-$i: 0
-=spacer($arr)
-	@for $val from 1 through length($arr) 
-		$spr: nth($arr, 1)
-	@if $spr == mg
-		@for $i from 2 through length($arr)
-			$props: nth($arr, $i)
-			+margin($props...)
-	@if $spr == pd
-		@for $i from 2 through length($arr)
-			$props: nth($arr, $i)
-			+padding($props...)
-	
-=sp($x, $y)
-	+spacer($x)
-	+spacer($y)
-		
-	
-//+sp((mg, (l, 20px), (b, 15px)), (pd, (r, 10px)))
-
-	
 =maw($brkp)
 	@media only screen and (max-width: $brkp+"px")
 		@content
@@ -181,11 +230,6 @@ $i: 0
 	@media only screen and (min-width: $brkp+"px")
 		@content
 
-=mw($min, $max)
-	@media only screen and (min-width: $min+"px") and (max-width: $max+"px")
-		@content
-
-
 @function rem($val)
 	$res: $val/16 + rem
 	@return $res
@@ -193,34 +237,4 @@ $i: 0
 @function em($val)
 	$res: $val/16 + em
 	@return $res 
-
-
-
-//  font-size: calc([minfz] + ([maxfz] - [minfz]) * ((100vw - [miw]) / ([maw] - [miw])));
-	
-=rfz($maw, $miw, $minfz, $maxfz)
-	$maw : $maw + px
-	$miw : $miw + px
-	$minfz : $minfz + px
-	$maxfz : $maxfz + px	
-	@media only screen and (min-width: $miw) 
-		font-size: calc(#{$minfz} + (#{$maxfz} - #{$minfz}) * ((100vw - #{$miw}) / (#{$maw} - #{$miw})))
-
-	@media only screen and (min-width: $maw)
-		font-size: $maxfz
-	
-// +rfz(1120, 320, 12, 40)
-
-%card
-	background-color: rgba($white, 0.8)
-	border: 1px solid #E0E0E0
-	box-sizing: border-box
-	box-shadow: 2px 2px 16px rgba(0, 0, 0, 0.08)
-	border-radius: 32px
-
-	transition: $trs
-
-	&::hover, &:focus, &::active
-		box-shadow: none
-		border-color: transaprent
 
