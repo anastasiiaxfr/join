@@ -1,0 +1,41 @@
+{{ $data := index .Site.Data .Site.Language.Lang }}
+
+{{ if $data.homepage.section_features }}
+{{ with $data.homepage.section_features }}
+
+<section class="section section_3">
+    <div class="section__container">
+        <div class="section__row">
+
+            {{ range .items }}
+            <div class="col-md-6 col-lg-4">
+                <figure class="feature">
+                    <div class="feature__pic">
+                        <svg role="img" class="{{ .icon }}">
+                            <use xlink:href="#{{ .icon }}"></use>
+                        </svg>
+                    </div>    
+                    <figcaption class="feature__caption">
+
+                        <h3 class="feature__title">
+                            {{ .title | markdownify }}
+                        </h3>
+                        <div class="feature__desc">
+                            {{ .description | markdownify }}
+                        </div>
+
+                    </figcaption>
+                </figure>
+            </div>
+            {{ end }}
+          
+            <div class="col-12 text-center">
+                {{- partial "_btn.html" . -}}
+            </div>
+   
+        </div>
+    </div>
+</section>
+
+{{ end }}
+{{ end }}

@@ -1,0 +1,45 @@
+
+{{ $data := index .Site.Data .Site.Language.Lang }}
+
+{{ if $data.homepage.hero }}
+	{{ with $data.homepage.hero }}
+
+        <section class="section section_hero">
+            <div class="section__container">
+                <div class="section__row">
+
+                    <div class="section__col_l">
+                        {{ if .title }}
+                        <h1>
+                            {{ .title }}
+                        </h1>
+                        {{ end }}
+                        {{ if .title_sub }}
+                        <p class="text_subtitle">
+                            {{ .title_sub }}
+                        </p>
+                        {{ end }}
+
+
+                        {{- partial "_btn-modal.html" . -}}
+                       
+                      
+                    </div>
+
+                    {{ if .bg_img }}
+                    <div class="col-md-6">
+
+                        <picture>
+                            <source srcset="{{ .bg_img_webp | relURL }}" type="image/webp" alt="{{ .Title }}" class="img img_hero" width="586" height="532">
+                            <img src="{{ .bg_img | relURL }}" alt="{{ .Title }}" class="img img_hero" width="100%" height="auto">
+                        </picture>
+
+                    </div>
+                    {{ end }}
+
+                </div>
+            </div>
+        </section>
+    {{ end }}
+{{ end }}
+
