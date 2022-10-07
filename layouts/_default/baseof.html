@@ -1,125 +1,52 @@
 <!DOCTYPE html>
-{{- partial "head.html" . -}}
+<html
+  dir="{{ .Site.Language.LanguageDirection | default "ltr" }}"
+  lang="{{- site.Language.Lang -}}"
+  data-theme="{{- .Site.Params.displayMode -}}"
+  class="html"
+>
+  {{- partial "head.html" . -}}
+  <body
+    {{ if eq .Site.Params.displayMode "dark" }}
+      class="body theme--dark"
 
-<body lang="{{ with .Site.LanguageCode }}{{ . }}{{ else }}en-US{{ end }}" class="page__body">
+    {{ else }}
+      class="body theme--light"
 
-  <main class="page__wrapper">
+    {{ end }}
+  >
+    <div class="wrapper">
+      <aside
+        {{ if and (not .IsHome) (eq .Site.Params.hidesidebar true) }}
+          class="wrapper__sidebar wrapper__sidebar--hidden"
 
-    {{- partial "preloader.html" . -}}
-    <div class="header-span"></div>
+        {{ else }}
+          class="wrapper__sidebar"
 
-    {{- partial "header.html" . -}}
+        {{ end }}
+      >
+        {{- partial "sidebar.html" . -}}
+      </aside>
+      <main
+        {{ if and (not .IsHome) (eq .Site.Params.hidesidebar true) }}
+          class="wrapper__main wrapper__main--fullscreen"
 
-    {{- block "main" . }}{{- end }}
+        {{ else }}
+          class="wrapper__main"
 
-  </main>
-  {{- partial "_btn-top.html" . -}}
-  {{- partial "footer.html" . -}}
+        {{ end }}
+      >
+        <header class="header">{{ partial "navbar.html" . }}</header>
+        {{- block "main" . }}{{- end }}
+      </main>
+    </div>
 
-  {{ range .Site.Params.plugins.js }}
-  <script src="{{ .link | relURL }}"></script>
-  {{ end }}
+    {{- partial "footer.html" (dict "context" . "footerClassModifier" "base") -}}
 
-  {{ $script := resources.Get "js/script.js" | minify }}
-  <script src="{{ $script.Permalink | relURL }}?v={{ now.Format " 01-02-2006-14-52-26"}}"></script>
-
-  {{- partial "_svg.html" . -}}
-
-
-<!-- <script>
-const animateCSS = (element, animation, delay, prefix = 'animate__') =>
-  // We create a Promise and return it
-  new Promise((resolve, reject) => {
-    const animationName = `${prefix}${animation}`;
-    const node = document.querySelector(element);
-
-    node.classList.add(`${prefix}animated`, animationName);
-    node.style.setProperty('animation-delay', `${delay}` || '0.5s');
-
-    // When the animation ends, we clean the classes and resolve the Promise
-    function handleAnimationEnd(event) {
-      event.stopPropagation();
-      node.classList.remove(`${prefix}animated`, animationName);
-      resolve('Animation ended');
-    }
-
-    node.addEventListener('animationend', handleAnimationEnd, {once: true});
-  });
-
-  animateCSS('header', 'fadeIn', '0.05s');
-  animateCSS('h1', 'fadeInDown', '0.1s');
-  animateCSS('.text__subtitle', 'fadeInUp', '0.2s');
-  animateCSS('.btn__bg', 'fadeInUp', '0.3s');
-  animateCSS('.img__hero', 'zoomIn', '0.8s');
+    {{- if (eq .Site.Params.simpleAnalytics.enable true) -}}
+      {{- partial "analytics/simpleanalytics.html" . -}}
 
 
-  animateCSS('.section__1 h2', 'fadeInDown', '0.75s');
-  animateCSS('.section__1 .text__sub', 'fadeInDown', '0.75s');
-  animateCSS('.section__1 .btn__bg', 'fadeInUp', '0.75s');
-
-  animateCSS('.card_item:first-child', 'fadeInLeft', '0.8s');
-  animateCSS('.card_item:last-child', 'fadeInRight', '0.8s');
-
-
-  animateCSS('.text__sub', 'fadeInUp');
-  animateCSS('.box h2', 'fadeInDown');
-  animateCSS('.col-md-4:nth-child(1)', 'fadeInUp', '1.5s');
-  animateCSS('.col-md-4:nth-child(2)', 'fadeInUp', '1.75s');
-  animateCSS('.col-md-4:nth-child(3)', 'fadeInUp', '2s');
-
-
-  animateCSS('.section__3 .col-md-6:nth-child(1)', 'fadeInUp', '0.75s');
-  animateCSS('.section__3 .col-md-6:nth-child(2)', 'fadeInUp', '0.85s');
-  animateCSS('.section__3 .col-md-6:nth-child(3)', 'fadeInUp', '0.95s');
-  animateCSS('.section__3 .col-md-6:nth-child(4)', 'fadeInUp', '1.05s');
-  animateCSS('.section__3 .col-md-6:nth-child(5)', 'fadeInUp', '1.15s');
-  animateCSS('.section__3 .col-md-6:nth-child(6)', 'fadeInUp', '1.25s');
-
-
-
-</script> -->
-
-<script>
-   function animation(element, animation, delay, prefix = 'wow', duration){
-    const node = document.querySelector(element);
-    node.setAttribute('data-wow-delay', `${delay}` || '0.5s');
-    //node.setAttribute('data-wow-duration', `${duration}` || '0.5s');
-    node.classList.add(`${prefix}`, `${animation}`);
-  }
-
-animation('.header', 'fadeInDown', '0');
-
-animation('.section_hero h1', 'fadeInDown', '0.1s');
-animation('.section_hero .text_subtitle', 'fadeInUp', '0.12s');
-animation('.section_hero .img_hero', 'fadeInRight', '0.13s');
-
-animation('.section_hero .btn_bg', 'fadeInUp', '0.14s');
-
-  
-animation('.section_1', 'fadeInUp', '0');
-animation('.section_2', 'fadeInUp', '0.1s');
-animation('.section_3', 'fadeInUp', '0.12s');
-animation('.section_4', 'fadeInUp', '0.13s');
-animation('.section_5', 'fadeInUp', '0.14s');
-animation('.section_6', 'fadeIn', '0.15s');
-
-animation('.section_3 .col-md-6:nth-child(1)', 'fadeInUp', '0.12s');
-animation('.section_3 .col-md-6:nth-child(2)', 'fadeInUp', '0.14s');
-animation('.section_3 .col-md-6:nth-child(3)', 'fadeInUp', '0.16s');
-animation('.section_3 .col-md-6:nth-child(4)', 'fadeInUp', '0.18s');
-animation('.section_3 .col-md-6:nth-child(5)', 'fadeInUp', '0.2s');
-animation('.section_3 .col-md-6:nth-child(6)', 'fadeInUp', '0.22s');
-
-animation('.str__item:nth-child(1)', 'fadeInUp', '0.23s');
-animation('.str__item:nth-child(2)', 'fadeInUp', '0.27s');
-animation('.str__item:nth-child(3)', 'fadeInUp', '0.31s');
-animation('.str__item:nth-child(4)', 'fadeInUp', '0.35s');
-
-
-  new WOW().init();
-
-</script>
-
-
-</body>
+    {{- end -}}
+  </body>
 </html>
