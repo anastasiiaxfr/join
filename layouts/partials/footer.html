@@ -44,7 +44,7 @@
                 <ul class="footer__nav">
                     {{ range .links }}
                     <li>
-                        <a href="{{ with index . 1 }}{{  . | relLangURL }}{{ end }}" class="text-link">
+                        <a href="{{ with index . 1 }}{{  . | relURL }}{{ end }}" class="text-link">
                             {{ with index . 0}}
                                 {{ . | markdownify }}
                             {{ end }} 

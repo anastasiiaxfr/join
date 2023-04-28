@@ -19,6 +19,12 @@ home = "Главная"
 languageCode = "ru"
 languageName = "Ру"
 weight = 2
+[[Languages.ru.footer.col]]
+links = [["Оферта", "/offer/"], ["Політика обробки персональних даних", "/personal-data/"]]
+title = "Юридична інформація"
+[[Languages.ru.footer.col]]
+links = [["ТОВ “МС ПЕЙ” \n Київ, вул. Солом'янська 3, оф. 6", "/"], ["join.commercial@gmail.com", "mailto:join.commercial@gmail.com"]]
+title = "Контакти"
 [Languages.ua]
 contentDir = "content/ua"
 home = "Головна"
